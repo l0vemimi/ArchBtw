@@ -1,0 +1,160 @@
+# material wiki: https://squidfunk.github.io/mkdocs-material
+site_name: archbtw
+site_author: mimi
+site_url: https://github.com/l0vemimi/arch-btw
+#edit_uri: edit/main/docs/ # if the repo is tied to the doc
+copyright: null
+nav:
+  - Home: 'index.md'
+extra_css:
+  - stylesheets/extra.css
+dev_addr: 127.0.0.1:8001
+################################
+############# THEME ############
+################################
+theme:
+  name: material
+  palette:
+    primary: white
+#    primary: custom
+    accent: pink
+    scheme: default  # light mode
+#   scheme: slate    # dark mode
+      #
+      # red; pink; purple; deep purple; indigo
+      # blue; light blue; cyan; tea; green; light green
+      # lime; yellow; amber; orange; deep orange; brown
+      # grey; blue grey; black; white
+      #    font: false # prevent typeface from being loaded from google fonts
+      #      text: Roboto
+      #      text: Roboto Mono
+#  direction: ltr
+#  direction: rtl
+  favicon: 
+  logo: 
+  icon:  
+#    repo: fontawesome/brands/github-alt
+#    repo: fontawesome/brands/git
+#    repo: fontawesome/brands/git-alt
+#    repo: fontawesome/brands/github
+#    repo: fontawesome/brands/github-alt
+#    repo: fontawesome/brands/gitlab
+#    repo: fontawesome/brands/gitkraken
+#    repo: fontawesome/brands/bitbucket
+#    repo: fontawesome/solid/trash
+    note: octicons/tag-16
+    abstract: octicons/checklist-16
+    info: octicons/info-16
+    tip: octicons/squirrel-16
+    success: octicons/check-16
+    question: octicons/question-16
+    warning: octicons/alert-16
+    failure: octicons/x-circle-16
+    danger: octicons/zap-16
+    bug: octicons/bug-16
+    example: octicons/beaker-16
+    quote: octicons/quote-16
+    edit: material/pencil
+    view: material/eye
+#    note: fontawesome/solid/note-sticky
+#    abstract: fontawesome/solid/book
+#    info: fontawesome/solid/circle-info
+#    tip: fontawesome/solid/bullhorn
+#    success: fontawesome/solid/check
+#    question: fontawesome/solid/circle-question
+#    warning: fontawesome/solid/triangle-exclamation
+#    failure: fontawesome/solid/bomb
+#    danger: fontawesome/solid/skull
+#    bug: fontawesome/solid/robot
+#    example: fontawesome/solid/flask
+#    quote: fontawesome/solid/quote-left
+  features:
+    - navigation.sections
+    - navigation.tabs
+    - navigation.expand
+    - navigation.path
+    - toc.follow
+    - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
+    - header.autohide
+    - navigation.footer
+    - content.action.edit
+    - content.code.copy
+    - content.code.select
+################################
+########### PLUGINS ############
+################################
+plugins:
+  - search:
+      enabled: true
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+      lang: en
+  - tags:
+      enabled: true
+      tags: true
+################################
+############ EXTRA #############
+################################
+extra:
+  version:
+    provider: mimi
+    default: stable
+  status: 
+    new: recently added
+    depreceated: old
+  generator: false
+################################
+###### MARKDOWN_EXTENSIONS #####
+################################
+markdown_extensions: 
+  - attr_list
+  - admonition
+  - md_in_html
+  - smarty
+  - markdown.extensions.wikilinks
+  - pymdownx.caret # for superscript in md: H~2~O or A^T^A
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.keys
+  - pymdownx.blocks.caption
+  - pymdownx.superfences
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      linenums_style: pymdownx-inline
+      line_spans: __span
+      use_pygments: true
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      #
+      ## navigation, table of contents, path can be hidden from the sidebar by putting these
+      ## lines into the .md document
+      #---
+      #hide:
+      #  - navigation
+      #  - toc
+      #  - path
+      #---
+      #
+      # Page title
+      #...
+      ## to exclude search items put this into the .md documen
+      #---
+      #search:
+      #  exclude: true
+      #---
+      # Page title
+      #...
+      ## or to exclude content from search place below as relevant
+      # ## Section 2 { data-search-exclude }
