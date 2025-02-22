@@ -1,11 +1,12 @@
 # material wiki: https://squidfunk.github.io/mkdocs-material
 site_name: archbtw
 site_author: mimi
-site_url: https://github.com/l0vemimi/arch-btw
+site_url: https://l0vemimi.github.io/arch-btw/
 #edit_uri: edit/main/docs/ # if the repo is tied to the doc
-copyright: null
 nav:
-  - Home: 'index.md'
+  - home: 'index.md'
+  - pkg: 'pkg.md'
+  - wiki: 'wiki.md'
 extra_css:
   - stylesheets/extra.css
 dev_addr: 127.0.0.1:8001
@@ -17,7 +18,7 @@ theme:
   palette:
     primary: white
 #    primary: custom
-    accent: pink
+    accent: lightblue
     scheme: default  # light mode
 #   scheme: slate    # dark mode
       #
@@ -30,8 +31,8 @@ theme:
       #      text: Roboto Mono
 #  direction: ltr
 #  direction: rtl
-  favicon: 
-  logo: 
+  favicon: /ass/arch.png
+  logo: /ass/arch.png
   icon:  
 #    repo: fontawesome/brands/github-alt
 #    repo: fontawesome/brands/git
