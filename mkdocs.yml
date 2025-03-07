@@ -5,14 +5,15 @@ site_url: https://l0vemimi.github.io/arch-btw/
 #edit_uri: edit/main/docs/ # if the repo is tied to the doc
 nav:
   - home: 'index.md'
+  - install: 'install.md'
   - pkg: 'pkg.md'
   - wiki: 'wiki.md'
 extra_css:
   - stylesheets/extra.css
 dev_addr: 127.0.0.1:8001
-################################
-############# THEME ############
-################################
+##################################
+############# THEME ##############
+##################################
 theme:
   name: material
   palette:
@@ -20,7 +21,7 @@ theme:
 #    primary: custom
     accent: lightblue
     scheme: default  # light mode
-#   scheme: slate    # dark mode
+#    scheme: slate    # dark mode
       #
       # red; pink; purple; deep purple; indigo
       # blue; light blue; cyan; tea; green; light green
@@ -31,8 +32,8 @@ theme:
       #      text: Roboto Mono
 #  direction: ltr
 #  direction: rtl
-  favicon: /ass/arch.png
-  logo: /ass/arch.png
+  favicon: arch.png
+  logo: arch.png
   icon:  
 #    repo: fontawesome/brands/github-alt
 #    repo: fontawesome/brands/git
@@ -85,9 +86,9 @@ theme:
     - content.action.edit
     - content.code.copy
     - content.code.select
-################################
-########### PLUGINS ############
-################################
+##################################
+############ PLUGINS #############
+##################################
 plugins:
   - search:
       enabled: true
@@ -96,9 +97,9 @@ plugins:
   - tags:
       enabled: true
       tags: true
-################################
-############ EXTRA #############
-################################
+##################################
+############# EXTRA ##############
+##################################
 extra:
   version:
     provider: mimi
@@ -107,9 +108,9 @@ extra:
     new: recently added
     depreceated: old
   generator: false
-################################
-###### MARKDOWN_EXTENSIONS #####
-################################
+##################################
+####### MARKDOWN_EXTENSIONS ######
+##################################
 markdown_extensions: 
   - attr_list
   - admonition
