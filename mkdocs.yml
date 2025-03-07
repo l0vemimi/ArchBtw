@@ -7,7 +7,7 @@ nav:
   - home: 'index.md'
   - install: 'install.md'
   - pkg: 'pkg.md'
-  - wiki: 'wiki.md'
+#  - wiki: 'wiki.md'
 extra_css:
   - stylesheets/extra.css
 dev_addr: 127.0.0.1:8001
