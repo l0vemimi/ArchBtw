@@ -1,7 +1,4 @@
 ## [archbtw](https://l0vemimi.github.io/arch-btw/)
-
-repo for archlinux
-
                          
                          ▟█▙
                         ▟███▙
@@ -21,3 +18,8 @@ repo for archlinux
           ▟██████▀▀▀              ▀▀██████▙
          ▟███▀▘                       ▝▀███▙
         ▟▛▀                               ▀▜▙
+
+## Current Contents
+
+- Installation Guide
+- Package List
