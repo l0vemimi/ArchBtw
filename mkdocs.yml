@@ -4,9 +4,9 @@ site_author: mimi
 site_url: https://l0vemimi.github.io/arch-btw/
 #edit_uri: edit/main/docs/ # if the repo is tied to the doc
 nav:
-  - home: 'index.md'
-  - install: 'install.md'
-  - pkg: 'pkg.md'
+  - HOME: 'index.md'
+  - INSTALL: 'install.md'
+  - PKG: 'pkg.md'
 #  - wiki: 'wiki.md'
 extra_css:
   - stylesheets/extra.css
