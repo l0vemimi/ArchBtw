@@ -2,14 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://l0vemimi.github.io/arch-btw/</loc>
-         <lastmod>2025-02-22</lastmod>
+         <lastmod>2025-03-07</lastmod>
+    </url>
+    <url>
+         <loc>https://l0vemimi.github.io/arch-btw/install/</loc>
+         <lastmod>2025-03-07</lastmod>
     </url>
     <url>
          <loc>https://l0vemimi.github.io/arch-btw/pkg/</loc>
-         <lastmod>2025-02-22</lastmod>
+         <lastmod>2025-03-07</lastmod>
     </url>
     <url>
          <loc>https://l0vemimi.github.io/arch-btw/wiki/</loc>
-         <lastmod>2025-02-22</lastmod>
+         <lastmod>2025-03-07</lastmod>
+    </url>
+    <url>
+         <loc>https://l0vemimi.github.io/arch-btw/man/network/</loc>
+         <lastmod>2025-03-07</lastmod>
     </url>
 </urlset>
