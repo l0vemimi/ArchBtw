@@ -1,0 +1,1148 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="mimi">
+      
+      
+        <link rel="canonical" href="https://l0vemimi.github.io/arch-btw/install/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../pkg/">
+      
+      
+      <link rel="icon" href="../arch.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>install - archbtw</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="lightblue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux-noobs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="archbtw" class="md-header__button md-logo" aria-label="archbtw" data-md-component="logo">
+      
+  <img src="../arch.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            archbtw
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              install
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  install
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../pkg/" class="md-tabs__link">
+        
+  
+    
+  
+  pkg
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../wiki/" class="md-tabs__link">
+        
+  
+    
+  
+  wiki
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="archbtw" class="md-nav__button md-logo" aria-label="archbtw" data-md-component="logo">
+      
+  <img src="../arch.png" alt="logo">
+
+    </a>
+    archbtw
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    install
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linux-noobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux Noobs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux Noobs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#veteran" class="md-nav__link">
+    <span class="md-ellipsis">
+      Veteran
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regular" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regular
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regular">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-preperation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Preperation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Preperation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-connect-the-usb" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. Connect the USB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-verify-boot-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2. Verify Boot Mode
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-connect-to-the-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Connect to the Internet
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Connect to the Internet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-connect-with-iwctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. Connect with iwctl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-connect-to-the-internet-via-ethernet" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. Connect to the Internet via Ethernet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-confirm-internet-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3. Confirm Internet Connection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Partition
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Partition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-layouts" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1. Layouts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-partition-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. Partition Disk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-format-partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3. Format Partition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-mount" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Mount
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-pacstrap" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Pacstrap
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Pacstrap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-things-to-consider" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1. Things to Consider
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-change-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Change Root
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Change Root">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-pre-chroot" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1. Pre-Chroot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-chroot" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2. Chroot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-post-chroot" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3. Post-Chroot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#731-bootloader" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3.1. Bootloader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#732-initramfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3.2. Initramfs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#733-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3.3. Network
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#734-time-localisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3.4. Time &amp; Localisation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#735-users-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3.5. Users &amp; Login
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pkg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pkg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiki/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    wiki
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p>This guide assumes you&rsquo;re already familiar with arch or linux and should be used as a refresher for reinstallation.</p>
+<p>There are <strong>two different</strong> guide modes: <strong>regular</strong> and <strong>veteran</strong>:</p>
+<p><strong>Reg</strong> Good brief guide on installation with reference links and a bit of explanation.</p>
+<p><strong>Vet</strong> Reminder and quick reference guide; Straight to the point and no screen bloat.</p>
+<p>If you&rsquo;re familiar with linux / arch, skip to the <a href="#regular">regular install guide</a>.</p>
+<p>If you&rsquo;re an arch vet, skip to the <a href="#veteran">vet install guide</a>.</p>
+<p><strong>Linux noobs, <a href="#linux-noobs">read below</a> before progressing.</strong></p>
+<h3 id="linux-noobs">Linux Noobs</h3>
+<p>I really do not recommend installing on dual boot with win***s, (do this at your own risk) nor do I recommend installing arch if you&rsquo;re a noob to linux. No hate against noobs but it get&rsquo;s annoying seeing the same stupid questions getting asked daily on <a href="https://bbs.archlinux.org/">arch forums</a>, <a href="https://www.reddit.com/r/arch/">r/arch</a> and <a href="https://www.reddit.com/r/archlinux/">r/archlinux</a>.</p>
+<p>If you want an introduction to linux, I recommend using <a href="https://www.debian.org/">debian</a> or <a href="https://ubuntu.com/download">ubuntu</a> to familiarise yourself, if you&rsquo;re hard set on arch try an arch distro such as <a href="https://manjaro.org/">manjaro</a>, <a href="https://garudalinux.org/">garuda</a> or <a href="https://endeavouros.com/">endeavor</a>.</p>
+<p>If you&rsquo;re still determined to download vanilla arch, I applaud and wish you luck. This guide will not go through <a href="">archinstall</a> and I advise against it; archinstall is meant to be used for users who already know what they are doing and manually installing is the <strong>best</strong> way to learn about the system. You will learn about very critical commands that will need to be used when repairing your system such as <a href="https://wiki.archlinux.org/title/Chroot">chroot</a> or <a href="https://wiki.archlinux.org/title/Pacstrap">pacstrap</a>.</p>
+<p>For the love of god please <a href="https://wiki.archlinux.org/title/Main_page">RTFW</a> and use it as your reference guide. The arch wiki will become your bible and it has EVERYTHING you need.</p>
+<h4 id="_1"></h4>
+<hr />
+<h1 id="veteran">Veteran</h1>
+<hr />
+<h1 id="regular">Regular</h1>
+<h2 id="1-preperation">1. Preperation</h2>
+<h3 id="11-connect-the-usb">1.1. Connect the USB</h3>
+<p>Connect the USB to your computer and boot into the iso. This shouldn&rsquo;t need much explanation&hellip;</p>
+<h3 id="12-verify-boot-mode">1.2. Verify Boot Mode</h3>
+<div class="highlight"><pre><span></span><code>user@arch ~ # cat /sys/firmware/efi/fw_platform_size
+</code></pre></div>
+<p>It should return: <strong>64</strong> meaning <em>64 bit</em> or <strong>32</strong> meaning <em>32 bit</em>. </p>
+<p>If it returns: <strong>No such file or directory</strong>, you&rsquo;ve got a <strong>bios system</strong>.</p>
+<p>Remember this as this will be important when <a href="#4-partition">partitioning</a> the disks.</p>
+<h2 id="2-connect-to-the-internet">2. Connect to the Internet</h2>
+<p>This will go through <strong>two</strong> ways to connect: <a href="#21-connect-with-iwctl">iwd</a> and <a href="#22-connect-to-the-internet-via-ethernet">ethernet</a>; Then when connected, <a href="#23-confirm-internet-connection">ping</a> to confirm the connection.</p>
+<h3 id="21-connect-with-iwctl">2.1. Connect with iwctl</h3>
+<p>Use <a href="https://wiki.archlinux.org/title/Iwd#iwctl">iwd</a> to connect to the internet. Type in iwctl.</p>
+<div class="highlight"><pre><span></span><code>user@arch ~ #
+
+user@arch ~ # iwctl
+</code></pre></div>
+<p>The prompt will change to iwd.List the station then put it in scan mode.</p>
+<div class="highlight"><pre><span></span><code>[iwd]#
+
+[iwd]# station list
+                        Devices in Station Mode
+
+    Name            State           Scanning
+
+    wlan0           disconnected
+
+
+[iwd]# station wlan0 scan
+</code></pre></div>
+<p>Once you&rsquo;ve got the station name; <strong>wlan0</strong> in this case, list the available networks.</p>
+<div class="highlight"><pre><span></span><code>[iwd]# station wlan0 get-networks
+                        Available networks
+
+    Network name       Security        Signal
+
+    WIFI1              psk             ****
+    WIFI2              psk              ***
+    WIFI3              psk              ****
+</code></pre></div>
+<p>After you get your network, connect to it and type in the password.</p>
+<div class="highlight"><pre><span></span><code>[iwd]# station wlan0 connect WIFI1
+Type the network passphrase for ARCH5G psk.
+Passphrase...
+</code></pre></div>
+<p>If you have a hiddn network, connect to it:</p>
+<div class="highlight"><pre><span></span><code>[iwd]# station wlan0 connect-hidden [NETWORK_NAME]
+</code></pre></div>
+<h3 id="22-connect-to-the-internet-via-ethernet">2.2. Connect to the Internet via Ethernet</h3>
+<p>Connecting via ethernet should be automatic; you shouldn&rsquo;t need to configure anything on arch.</p>
+<p><strong>Settings &gt; Connections &gt; Mobile Hotspot and Teathering &gt; USB Tethering</strong></p>
+<p><strong><em>NOTE:</em></strong> <em>The USB cable needs to be connected for this option to be toggled. If you can&rsquo;t find the setting, look up ethernet connection for your specific device model</em></p>
+<h3 id="23-confirm-internet-connection">2.3. Confirm Internet Connection</h3>
+<p>Ping the network to make sure you&rsquo;re connected. You can use any address you want, e.g <em>google&rsquo;s public DNS: 8.8.8.8; cloudfare&rsquo;s public DNS: 1.1.1.1</em> I usually use archlinux, so we&rsquo;ll use it in the example below.</p>
+<div class="highlight"><pre><span></span><code>user@arch ~ # ping archlinux.org
+</code></pre></div>
+<h2 id="4-partition">4. Partition</h2>
+<p>List the disks on your syste:</p>
+<div class="highlight"><pre><span></span><code>user@arch ~ # lsblk
+NAME        MAJ:MIN     RO      SIZE    TYPE    MOUNTPOINTS
+nvme0n1     259:0       0       1.8T    disk
+</code></pre></div>
+<p><strong>Your disks can also be named sda</strong>; follow what is relevant. Anything that ends in <em>rom, loop, airootfs</em> can be ignored. See <a href="https://wiki.archlinux.org/title/Device_file#Block_device_names">device file</a> for more information.</p>
+<p>The following will be going through GPT partitions, for more information on partitioning, view: <a href="https://en.wikipedia.org/wiki/Partition_type">Partition Types</a> and GNU&rsquo;s <a href="https://www.gnu.org/software/grub/manual/grub/html_node/BIOS-installation.html#BIOS-installation">bios installation</a></p>
+<h3 id="41-layouts">4.1. Layouts</h3>
+<p><strong>EFI:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Partition</th>
+<th>Partition Type</th>
+<th>Recommended Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/boot</td>
+<td>EFI System</td>
+<td>1 GiB</td>
+</tr>
+<tr>
+<td>[SWAP]</td>
+<td>Linux swap</td>
+<td>4 GiB</td>
+</tr>
+<tr>
+<td>/</td>
+<td>Linux x86_64 root</td>
+<td>23-32 GiB</td>
+</tr>
+</tbody>
+</table>
+<p><strong>BIOS:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Partition</th>
+<th>Partition Type</th>
+<th>Recommended Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-</td>
+<td>BIOS Boot</td>
+<td>1 MiB</td>
+</tr>
+<tr>
+<td>[SWAP]</td>
+<td>Linux swap</td>
+<td>4 GiB</td>
+</tr>
+<tr>
+<td>/</td>
+<td>Linux x86_64 root</td>
+<td>23-32 GiB</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTE:</strong> </p>
+<p><em>Home partition isnt required but it is usually created; especially if you&rsquo;ll be using your pc as a daily and:</em></p>
+<ul>
+<li><em>So you&rsquo;re not sharing the same userspace as root.</em> </li>
+<li><em>Easier to distro hop or nuke your install to start over without wiping user configs.</em></li>
+</ul>
+<p><strong><em>Boot</em></strong> <em>of 1 GiB is enough for multiple kernels; if you don&rsquo;t plan on using more kernels on /boot, then 400 MiB should be enough. I usually just go for 1 GiB </em><em>just in case</em>**</p>
+<h3 id="42-partition-disk">4.2. Partition Disk</h3>
+<div class="highlight"><pre><span></span><code>user@arch ~ # fdisk /dev/sda
+</code></pre></div>
+<p>Create a new GPT partition.</p>
+<div class="highlight"><pre><span></span><code>Command (m for help): g
+</code></pre></div>
+<p>Create boot, swap, root and home. </p>
+<div class="highlight"><pre><span></span><code>Command (m for help): n
+
+Partition number (1-4, default 1): [ENTER]
+
+First sector (2048-3907026943, default 2048): [ENTER]
+
+Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-3907026943, default 3907026943): +1G
+</code></pre></div>
+<p>Do not type +1G for all partitions&hellip; make sure the size is relevant to the partition type. Review <a href="#41-layouts">4.1. Layouts</a>.</p>
+<p><strong>BIOS does not need /boot</strong>, <em>do not create it.You&rsquo;ll need an extra partition called </em><em>bios boot</em><em>, with no file system and +1M ~ it can be in any position but needs to be on the first 2 TiB of the disk. This partition also needs to be created </em><em>BEFORE</em><em> grub is installed.</em></p>
+<p>Change the partition types.</p>
+<div class="highlight"><pre><span></span><code>Command (m for help): t
+</code></pre></div>
+<p>Quick partition type reference guide for GPT:</p>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Type</th>
+<th><a href="https://wiki.archlinux.org/title/GUID_Partition_Table">GUID</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>EFI System</td>
+<td>C12A7328-F81F-11D2-BA4B-00A0C93EC93B</td>
+</tr>
+<tr>
+<td>4</td>
+<td>BIOS Boot</td>
+<td>21686148-6449-6E6F-744E-656564454649</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Linux Swap</td>
+<td>0657FD6D-A4AB-43C4-84E5-0933C84B4F4F</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Linux Filesystem</td>
+<td>0FC63DAF-8483-4772-8E79-3D69D8477DE4</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Linux Root x86_64</td>
+<td>4F68BCE3-E8CD-4DB1-96E7-FBCAF984B709</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Linux Home</td>
+<td>933AC7E1-2EB4-4F13-B844-0E14E2AEF915</td>
+</tr>
+</tbody>
+</table>
+<p>When finished, write the disk and exit.</p>
+<div class="highlight"><pre><span></span><code>Command (m for help): w
+</code></pre></div>
+<h3 id="43-format-partition">4.3. Format Partition</h3>
+<p>For boot partition, create the efi file system. </p>
+<div class="highlight"><pre><span></span><code>    user@arch ~ # mkfs.fat -F 32 /dev/[EFI PARTITION]
+</code></pre></div>
+<p>Create the swap file system.</p>
+<div class="highlight"><pre><span></span><code>    user@arch ~ # mkswap /dev/[SWAP_PARTITION]
+</code></pre></div>
+<p>Create a filesystem for root and home if you&rsquo;ve created one. I always use ext4, view <a href="https://wiki.archlinux.org/title/File_systems">file systems</a> for more information on different types.</p>
+<div class="highlight"><pre><span></span><code>    user@arch ~ # mkfs.ext4 /dev/[ROOT_PARTITION]
+
+    user@arch ~ # mkfs.ext4 /dev/[HOME_PARTITION]
+</code></pre></div>
+<h2 id="5-mount">5. Mount</h2>
+<p>Mount the partitions you&rsquo;ve created.</p>
+<div class="highlight"><pre><span></span><code>user@arch ~ # mount /dev/[ROOT_PARTITION] /mnt
+</code></pre></div>
+<p>You&rsquo;ll need to run mkdir with other mount points.</p>
+<div class="highlight"><pre><span></span><code>user@arch ~ # mount --mkdir /dev/[BOOT_PARTITION] /mnt/boot
+
+user@arch ~ # mount --mkdir /dev/[HOME_PARTITION] /mnt/home
+</code></pre></div>
+<p><strong>NOTE: Do not mount BIOS boot</strong> partition.</p>
+<p>Turn on swap.</p>
+<div class="highlight"><pre><span></span><code>user@arch ~ # swapon /dev/[SWAP_PARTITION]
+</code></pre></div>
+<h2 id="6-pacstrap">6. Pacstrap</h2>
+<p>Install the base packages, kernel and firmware. See <a href="https://wiki.archlinux.org/title/Kernel">kernel</a> for more information on different kernel types and options.</p>
+<div class="highlight"><pre><span></span><code>user@arch ~ # pacstrap -K /mnt base linux linux-firmware
+</code></pre></div>
+<p>It&rsquo;s best to download the rest of your packages now, you could also do this when you&rsquo;ve chrooted.</p>
+<p><strong><em>NOTE:</em></strong> <em>Nothing except for /etc/pacman.d/mirrorlist will be carried over from the live install to the installed system.</em></p>
+<h3 id="61-things-to-consider">6.1. Things to Consider</h3>
+<p><strong><a href="https://wiki.archlinux.org/title/Arch_boot_process#Feature_comparison">Boot Loader</a></strong></p>
+<ul>
+<li><a href="https://archlinux.org/packages/core/x86_64/efibootmgr/">efibootmgr</a></li>
+<li><a href="https://archlinux.org/packages/core/x86_64/grub/">grub</a></li>
+<li><a href="https://aur.archlinux.org/packages/grub-legacy/">grub-legacy</a></li>
+</ul>
+<p><strong>CPU <a href="https://wiki.archlinux.org/title/Microcode">Microdes</a>:</strong> </p>
+<ul>
+<li><a href="https://archlinux.org/packages/?name=amd-ucode">amd-ucode</a></li>
+<li><a href="https://archlinux.org/packages/?name=intel-ucode">intel-ucode</a></li>
+</ul>
+<p><strong><a href="https://wiki.archlinux.org/title/Desktop_environment">Desktop Environments</a>:</strong></p>
+<ul>
+<li><a href="https://archlinux.org/packages/extra/x86_64/plasma-desktop/">KDE Plasma</a></li>
+<li><a href="https://archlinux.org/packages/extra/x86_64/gnome-desktop/">gnome</a></li>
+</ul>
+<p><strong><a href="https://wiki.archlinux.org/title/Display_manager">Display Manager</a>:</strong></p>
+<p>-<a href="https://archlinux.org/packages/?name=gdm">gdm</a>
+- <a href="https://archlinux.org/packages/?name=lightdm">lightdm</a>
+- <a href="https://archlinux.org/packages/?name=lxdm">lxdm</a>
+- <a href="https://archlinux.org/packages/extra/x86_64/sddm/">SDDM</a></p>
+<p><strong>Firmware:</strong></p>
+<ul>
+<li><a href="https://wiki.archlinux.org/title/Broadcom_wireless">broadcom wireless</a></li>
+</ul>
+<p><strong><a href="https://wiki.archlinux.org/title/Network_configuration#Network_managers">Networking</a>:</strong></p>
+<ul>
+<li><a href="https://archlinux.org/packages/extra/x86_64/dhcpcd/">dhcpcd</a></li>
+<li><a href="https://archlinux.org/packages/extra/x86_64/iwd/">iwd</a></li>
+<li><a href="https://archlinux.org/packages/extra/x86_64/modemmanager/">ModemManager</a></li>
+<li><a href="https://archlinux.org/packages/extra/x86_64/networkmanager/">NetworkManager</a></li>
+<li><a href="https://archlinux.org/packages/core/x86_64/wpa_supplicant/">wpa_supplicant</a></li>
+</ul>
+<p><strong>Text Editors:</strong></p>
+<ul>
+<li><a href="https://archlinux.org/packages/core/x86_64/nano/">nano</a></li>
+<li><a href="https://archlinux.org/packages/extra/x86_64/vim/">vim</a></li>
+</ul>
+<p><strong><a href="https://wiki.archlinux.org/title/List_of_applications/Utilities#Terminal_emulators">Terminal Emulators</a>:</strong></p>
+<ul>
+<li><a href="https://archlinux.org/packages/?name=alacritty">alacritty</a></li>
+<li><a href="https://archlinux.org/packages/?name=kitty">kitty</a></li>
+<li><a href="https://archlinux.org/packages/?name=konsole">konsole</a></li>
+<li><a href="https://archlinux.org/packages/?name=wezterm">wezterm</a></li>
+</ul>
+<h2 id="7-change-root">7. Change Root</h2>
+<h3 id="71-pre-chroot">7.1. Pre-Chroot</h3>
+<p>Before you chroot you must generate <a href="https://wiki.archlinux.org/title/Fstab">fstab</a>.</p>
+<div class="highlight"><pre><span></span><code>user@arch ~ # genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</code></pre></div>
+<h3 id="72-chroot">7.2. Chroot</h3>
+<p><a href="https://wiki.archlinux.org/title/Change_root">Chroot</a> into the system at your chosen mountpoint; it should be /mnt for a general new install if you followed this guide or <a href="https://wiki.archlinux.org/title/Installation_guide">archwiki</a></p>
+<div class="highlight"><pre><span></span><code>user@arch ~ # arch-chroot /mnt
+</code></pre></div>
+<h3 id="73-post-chroot">7.3. Post-Chroot</h3>
+<h3 id="731-bootloader">7.3.1. Bootloader</h3>
+<p>This will run through installing <a href="https://wiki.archlinux.org/title/GRUB#Generate_the_main_configuration_file">grub</a>, for other bootloader options see <a href="https://wiki.archlinux.org/title/Arch_boot_process#Feature_comparison">boot loader comparison</a>.</p>
+<p>EFI:</p>
+<div class="highlight"><pre><span></span><code>chroot@arch ~ # grub-install --target=x86_64-efi --efi-directory=boot --boot-loader-id=GRUB
+</code></pre></div>
+<p>BIOS:</p>
+<div class="highlight"><pre><span></span><code>grub-install --target=i386-pc /dev/sdx
+</code></pre></div>
+<p>/dev/sdx is the <strong>disk not the partition</strong> for grub to be installed e.g. /dev/sda /dev/nvme1n1 are <strong>disks</strong>; /dev/sda1 /dev/nvme1n1p1 are <strong>partitions</strong>.</p>
+<p>Generate grub config. The file for both EFI and BIOS will be generated in /boot/grub/grub.cfg.</p>
+<div class="highlight"><pre><span></span><code>chroot@arch ~ # grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre></div>
+<h3 id="732-initramfs">7.3.2. Initramfs</h3>
+<p><a href="https://wiki.archlinux.org/title/Mkinitcpio">Mkinitcpio</a> was run during the pacstrap; To create a new initramfs for any reason:</p>
+<div class="highlight"><pre><span></span><code>chroot@arch ~ # mkinitcpio -P
+</code></pre></div>
+<h3 id="733-network">7.3.3. Network</h3>
+<p>Create a <a href="https://wiki.archlinux.org/title/Hostname">hostname</a> file in /etc; I use nano.</p>
+<div class="highlight"><pre><span></span><code>chroot@arch ~ # nano /etc/hostname
+
+yourhostname
+</code></pre></div>
+<h3 id="734-time-localisation">7.3.4. Time &amp; Localisation</h3>
+<p>Set the time zone:</p>
+<div class="highlight"><pre><span></span><code>chroot@arch ~ # ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+
+chroot@arch ~ # hwclock --systohc
+</code></pre></div>
+<p>Set the locale:</p>
+<div class="highlight"><pre><span></span><code>chroot@arch ~ # locale-gen
+</code></pre></div>
+<p>Set the LANG in /etc/locale.conf:</p>
+<div class="highlight"><pre><span></span><code>chroot@arch ~ # LANG=en_US.UTF-8
+</code></pre></div>
+<h3 id="735-users-login">7.3.5. Users &amp; Login</h3>
+<p>Create the root password, you will need this when you reboot and you will not be able to log in without it. If you skip this step, you&rsquo;ll need to chroot back in and add the password.</p>
+<div class="highlight"><pre><span></span><code>chroot@arch ~ # passwd
+</code></pre></div>
+<p>Create a user; You will need to create a user if you want to use a desktop environment; You will not be able to login with root.</p>
+<div class="highlight"><pre><span></span><code>chroot@arch ~ # useradd -m -s /usr/bin/bash [USERNAME]
+</code></pre></div>
+<p><strong>-m / &ndash;create-home</strong>: User home dir is created as /home/[USERNAME].</p>
+<p><strong>-s / &ndash;shell</strong>: Path to the login shell. Make sure you&rsquo;ve got the shell you want to use installed&hellip;</p>
+<p>Add a password for the user account you&rsquo;ve just created.</p>
+<div class="highlight"><pre><span></span><code>chroot@arch ~ # [USERNAME] passwd
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: home">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                home
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../pkg/" class="md-footer__link md-footer__link--next" aria-label="Next: pkg">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                pkg
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.tabs", "navigation.expand", "navigation.path", "toc.follow", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "search.share", "header.autohide", "navigation.footer", "content.action.edit", "content.code.copy", "content.code.select"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "stable", "provider": "mimi"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
