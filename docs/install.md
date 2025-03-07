@@ -2,9 +2,9 @@ This guide assumes you're already familiar with arch or linux and should be used
 
 There are **two different** guide modes: **regular** and **veteran**:
 
-**Reg** Good brief guide on installation with reference links and a bit of explanation.
+**Reg**: Good brief guide on installation with reference links and a bit of explanation.
 
-**Vet** Reminder and quick reference guide; Straight to the point and no screen bloat.
+**Vet**: Reminder and quick reference guide; Straight to the point and no screen bloat.
 
 If you're familiar with linux / arch, skip to the [regular install guide](#regular).
 
