@@ -639,6 +639,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#8-reboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Reboot
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -725,6 +734,16 @@
 <h4 id="_1"></h4>
 <hr />
 <h1 id="veteran">Veteran</h1>
+<ol>
+<li>partition</li>
+<li>mkfs</li>
+<li>mount</li>
+<li>pacstrap</li>
+<li>fstab</li>
+<li>chroot</li>
+<li>grub-install &amp; grub-mkconfig</li>
+<li>useradd / Uuermod</li>
+</ol>
 <hr />
 <h1 id="regular">Regular</h1>
 <h2 id="1-preperation">1. Preperation</h2>
@@ -772,19 +791,19 @@ user@arch ~ # iwctl
 Type the network passphrase for ARCH5G psk.
 Passphrase...
 </code></pre></div>
-<p>If you have a hiddn network, connect to it:</p>
+<p>If you have a hidden network, connect to it:</p>
 <div class="highlight"><pre><span></span><code>[iwd]# station wlan0 connect-hidden [NETWORK_NAME]
 </code></pre></div>
 <h3 id="22-connect-to-the-internet-via-ethernet">2.2. Connect to the Internet via Ethernet</h3>
-<p>Connecting via ethernet should be automatic; you shouldn&rsquo;t need to configure anything on arch.</p>
+<p>Connecting via ethernet should be automatic; you shouldn&rsquo;t need to configure anything on arch. Find the setting in your android phone:</p>
 <p><strong>Settings &gt; Connections &gt; Mobile Hotspot and Teathering &gt; USB Tethering</strong></p>
-<p><strong><em>NOTE:</em></strong> <em>The USB cable needs to be connected for this option to be toggled. If you can&rsquo;t find the setting, look up ethernet connection for your specific device model</em></p>
+<p><strong><em>NOTE:</em></strong> <em>The USB cable needs to be connected for this option to be toggled. If you can&rsquo;t find the setting, look up ethernet connection for your specific device model</em>.</p>
 <h3 id="23-confirm-internet-connection">2.3. Confirm Internet Connection</h3>
-<p>Ping the network to make sure you&rsquo;re connected. You can use any address you want, e.g <em>google&rsquo;s public DNS: 8.8.8.8; cloudfare&rsquo;s public DNS: 1.1.1.1</em> I usually use archlinux, so we&rsquo;ll use it in the example below.</p>
+<p>Ping the network to make sure you&rsquo;re connected. You can use any address you want, e.g <em>google&rsquo;s public DNS: 8.8.8.8; cloudfare&rsquo;s public DNS: 1.1.1.1</em>. I usually use archlinux, so we&rsquo;ll use it in the example below.</p>
 <div class="highlight"><pre><span></span><code>user@arch ~ # ping archlinux.org
 </code></pre></div>
 <h2 id="4-partition">4. Partition</h2>
-<p>List the disks on your syste:</p>
+<p>List the disks on your system:</p>
 <div class="highlight"><pre><span></span><code>user@arch ~ # lsblk
 NAME        MAJ:MIN     RO      SIZE    TYPE    MOUNTPOINTS
 nvme0n1     259:0       0       1.8T    disk
@@ -852,7 +871,7 @@ nvme0n1     259:0       0       1.8T    disk
 <li><em>So you&rsquo;re not sharing the same userspace as root.</em> </li>
 <li><em>Easier to distro hop or nuke your install to start over without wiping user configs.</em></li>
 </ul>
-<p><strong><em>Boot</em></strong> <em>of 1 GiB is enough for multiple kernels; if you don&rsquo;t plan on using more kernels on /boot, then 400 MiB should be enough. I usually just go for 1 GiB </em><em>just in case</em>**</p>
+<p><strong><em>Boot</em></strong> <em>of 1 GiB is enough for multiple kernels; if you don&rsquo;t plan on using more kernels on /boot, then 400 MiB should be enough. I usually just go for 1 GiB</em> <strong><em>just in case</em></strong></p>
 <h3 id="42-partition-disk">4.2. Partition Disk</h3>
 <div class="highlight"><pre><span></span><code>user@arch ~ # fdisk /dev/sda
 </code></pre></div>
@@ -920,15 +939,15 @@ Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-3907026943, default 39070269
 </code></pre></div>
 <h3 id="43-format-partition">4.3. Format Partition</h3>
 <p>For boot partition, create the efi file system. </p>
-<div class="highlight"><pre><span></span><code>    user@arch ~ # mkfs.fat -F 32 /dev/[EFI PARTITION]
+<div class="highlight"><pre><span></span><code>user@arch ~ # mkfs.fat -F 32 /dev/[EFI PARTITION]
 </code></pre></div>
 <p>Create the swap file system.</p>
-<div class="highlight"><pre><span></span><code>    user@arch ~ # mkswap /dev/[SWAP_PARTITION]
+<div class="highlight"><pre><span></span><code>user@arch ~ # mkswap /dev/[SWAP_PARTITION]
 </code></pre></div>
 <p>Create a filesystem for root and home if you&rsquo;ve created one. I always use ext4, view <a href="https://wiki.archlinux.org/title/File_systems">file systems</a> for more information on different types.</p>
-<div class="highlight"><pre><span></span><code>    user@arch ~ # mkfs.ext4 /dev/[ROOT_PARTITION]
+<div class="highlight"><pre><span></span><code>user@arch ~ # mkfs.ext4 /dev/[ROOT_PARTITION]
 
-    user@arch ~ # mkfs.ext4 /dev/[HOME_PARTITION]
+user@arch ~ # mkfs.ext4 /dev/[HOME_PARTITION]
 </code></pre></div>
 <h2 id="5-mount">5. Mount</h2>
 <p>Mount the partitions you&rsquo;ve created.</p>
@@ -1001,7 +1020,7 @@ user@arch ~ # mount --mkdir /dev/[HOME_PARTITION] /mnt/home
 <div class="highlight"><pre><span></span><code>user@arch ~ # genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
 </code></pre></div>
 <h3 id="72-chroot">7.2. Chroot</h3>
-<p><a href="https://wiki.archlinux.org/title/Change_root">Chroot</a> into the system at your chosen mountpoint; it should be /mnt for a general new install if you followed this guide or <a href="https://wiki.archlinux.org/title/Installation_guide">archwiki</a></p>
+<p><a href="https://wiki.archlinux.org/title/Change_root">Chroot</a> into the system at your chosen mountpoint; it should be /mnt for a general new install if you followed this guide or <a href="https://wiki.archlinux.org/title/Installation_guide">archwiki</a>.</p>
 <div class="highlight"><pre><span></span><code>user@arch ~ # arch-chroot /mnt
 </code></pre></div>
 <h3 id="73-post-chroot">7.3. Post-Chroot</h3>
@@ -1050,6 +1069,10 @@ chroot@arch ~ # hwclock --systohc
 <p><strong>-s / &ndash;shell</strong>: Path to the login shell. Make sure you&rsquo;ve got the shell you want to use installed&hellip;</p>
 <p>Add a password for the user account you&rsquo;ve just created.</p>
 <div class="highlight"><pre><span></span><code>chroot@arch ~ # [USERNAME] passwd
+</code></pre></div>
+<h2 id="8-reboot">8. Reboot</h2>
+<p><strong>CTRL + D</strong> to exit chroot, then type reboot.</p>
+<div class="highlight"><pre><span></span><code>user@arch ~ # reboot
 </code></pre></div>
 
 

@@ -29,6 +29,15 @@ For the love of god please [RTFW](https://wiki.archlinux.org/title/Main_page) an
 
 # Veteran
 
+1. partition
+2. mkfs
+3. mount
+4. pacstrap
+5. fstab
+6. chroot
+7. grub-install & grub-mkconfig
+8. useradd / Uuermod
+
 ---
 
 # Regular
@@ -91,21 +100,21 @@ After you get your network, connect to it and type in the password.
     [iwd]# station wlan0 connect WIFI1
     Type the network passphrase for ARCH5G psk.
     Passphrase...
-If you have a hiddn network, connect to it:
+If you have a hidden network, connect to it:
 
     [iwd]# station wlan0 connect-hidden [NETWORK_NAME]
 
 ### 2.2. Connect to the Internet via Ethernet
 
-Connecting via ethernet should be automatic; you shouldn't need to configure anything on arch.
+Connecting via ethernet should be automatic; you shouldn't need to configure anything on arch. Find the setting in your android phone:
 
 **Settings > Connections > Mobile Hotspot and Teathering > USB Tethering**
 
-***NOTE:*** *The USB cable needs to be connected for this option to be toggled. If you can't find the setting, look up ethernet connection for your specific device model*
+***NOTE:*** *The USB cable needs to be connected for this option to be toggled. If you can't find the setting, look up ethernet connection for your specific device model*.
 
 ### 2.3. Confirm Internet Connection
 
-Ping the network to make sure you're connected. You can use any address you want, e.g *google's public DNS: 8.8.8.8; cloudfare's public DNS: 1.1.1.1* I usually use archlinux, so we'll use it in the example below.
+Ping the network to make sure you're connected. You can use any address you want, e.g *google's public DNS: 8.8.8.8; cloudfare's public DNS: 1.1.1.1*. I usually use archlinux, so we'll use it in the example below.
 
 
 
@@ -114,7 +123,7 @@ Ping the network to make sure you're connected. You can use any address you want
 
 ## 4. Partition
 
-List the disks on your syste:
+List the disks on your system:
 
     user@arch ~ # lsblk
     NAME        MAJ:MIN     RO      SIZE    TYPE    MOUNTPOINTS
@@ -149,7 +158,7 @@ The following will be going through GPT partitions, for more information on part
 - *So you're not sharing the same userspace as root.* 
 - *Easier to distro hop or nuke your install to start over without wiping user configs.*
 
-***Boot*** *of 1 GiB is enough for multiple kernels; if you don't plan on using more kernels on /boot, then 400 MiB should be enough. I usually just go for 1 GiB **just in case***
+***Boot*** *of 1 GiB is enough for multiple kernels; if you don't plan on using more kernels on /boot, then 400 MiB should be enough. I usually just go for 1 GiB* ***just in case***
 
 ### 4.2. Partition Disk
 
@@ -196,17 +205,17 @@ When finished, write the disk and exit.
 
 For boot partition, create the efi file system. 
 
-        user@arch ~ # mkfs.fat -F 32 /dev/[EFI PARTITION]
+    user@arch ~ # mkfs.fat -F 32 /dev/[EFI PARTITION]
 
 Create the swap file system.
 
-        user@arch ~ # mkswap /dev/[SWAP_PARTITION]
+    user@arch ~ # mkswap /dev/[SWAP_PARTITION]
 
 Create a filesystem for root and home if you've created one. I always use ext4, view [file systems](https://wiki.archlinux.org/title/File_systems) for more information on different types.
 
-        user@arch ~ # mkfs.ext4 /dev/[ROOT_PARTITION]
+    user@arch ~ # mkfs.ext4 /dev/[ROOT_PARTITION]
 
-        user@arch ~ # mkfs.ext4 /dev/[HOME_PARTITION]
+    user@arch ~ # mkfs.ext4 /dev/[HOME_PARTITION]
 
 ## 5. Mount
 
@@ -295,7 +304,7 @@ Before you chroot you must generate [fstab](https://wiki.archlinux.org/title/Fst
 
 ### 7.2. Chroot
 
-[Chroot](https://wiki.archlinux.org/title/Change_root) into the system at your chosen mountpoint; it should be /mnt for a general new install if you followed this guide or [archwiki](https://wiki.archlinux.org/title/Installation_guide)
+[Chroot](https://wiki.archlinux.org/title/Change_root) into the system at your chosen mountpoint; it should be /mnt for a general new install if you followed this guide or [archwiki](https://wiki.archlinux.org/title/Installation_guide).
 
     user@arch ~ # arch-chroot /mnt    
 
@@ -366,6 +375,14 @@ Create a user; You will need to create a user if you want to use a desktop envir
 Add a password for the user account you've just created.
 
     chroot@arch ~ # [USERNAME] passwd
+
+## 8. Reboot
+
+**CTRL + D** to exit chroot, then type reboot.
+
+    user@arch ~ # reboot
+
+
 
 
 
