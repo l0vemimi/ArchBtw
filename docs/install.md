@@ -36,7 +36,7 @@ For the love of god please [RTFW](https://wiki.archlinux.org/title/Main_page) an
 5. fstab
 6. chroot
 7. grub-install & grub-mkconfig
-8. useradd / Uuermod
+8. useradd & usermod
 
 ---
 
