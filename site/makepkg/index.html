@@ -10,23 +10,23 @@
         <meta name="author" content="mimi">
       
       
-        <link rel="canonical" href="https://l0vemimi.github.io/arch-btw/pkg/">
+        <link rel="canonical" href="https://l0vemimi.github.io/ArchBtw/makepkg/">
       
       
-        <link rel="prev" href="../install/">
+        <link rel="prev" href="../pkglist/">
       
       
       
       <link rel="icon" href="../arch.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.10">
     
     
       
-        <title>Pkg - archbtw</title>
+        <title>MakePkg - ArchBtw</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -65,7 +65,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="lightblue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#security" class="md-skip">
+        <a href="#creating-a-package-repository" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="archbtw" class="md-header__button md-logo" aria-label="archbtw" data-md-component="logo">
+    <a href=".." title="ArchBtw" class="md-header__button md-logo" aria-label="ArchBtw" data-md-component="logo">
       
   <img src="../arch.png" alt="logo">
 
@@ -105,13 +105,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            archbtw
+            ArchBtw
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Pkg
+              MakePkg
             
           </span>
         </div>
@@ -186,9 +186,11 @@
   
   
   
+  
     <li class="md-tabs__item">
       <a href=".." class="md-tabs__link">
         
+  
   
     
   
@@ -203,9 +205,11 @@
   
   
   
+  
     <li class="md-tabs__item">
       <a href="../install/" class="md-tabs__link">
         
+  
   
     
   
@@ -219,6 +223,26 @@
         
   
   
+  
+  
+    <li class="md-tabs__item">
+      <a href="../pkglist/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  PkgList
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
     
   
   
@@ -226,9 +250,10 @@
       <a href="./" class="md-tabs__link">
         
   
+  
     
   
-  Pkg
+  MakePkg
 
       </a>
     </li>
@@ -259,12 +284,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="archbtw" class="md-nav__button md-logo" aria-label="archbtw" data-md-component="logo">
+    <a href=".." title="ArchBtw" class="md-nav__button md-logo" aria-label="ArchBtw" data-md-component="logo">
       
   <img src="../arch.png" alt="logo">
 
     </a>
-    archbtw
+    ArchBtw
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -278,6 +303,7 @@
     <li class="md-nav__item">
       <a href=".." class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     Home
@@ -300,8 +326,31 @@
       <a href="../install/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pkglist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PkgList
     
   </span>
   
@@ -330,8 +379,9 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
-    Pkg
+    MakePkg
     
   </span>
   
@@ -342,8 +392,9 @@
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
-    Pkg
+    MakePkg
     
   </span>
   
@@ -366,18 +417,102 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#network" class="md-nav__link">
+  <a href="#1-keys" class="md-nav__link">
     <span class="md-ellipsis">
-      network
+      1. Keys
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Keys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-gpg-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. Gpg Key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-pacman-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2. Pacman Key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makepkg-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Makepkg Key
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Repository
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-build-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. Build Packages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-tarball" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. Tarball
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-make-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3. Make Package
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-database-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4. Database Files
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#privelage" class="md-nav__link">
+  <a href="#3-repository-to-pacman" class="md-nav__link">
     <span class="md-ellipsis">
-      privelage
+      3. Repository to Pacman
     </span>
   </a>
   
@@ -407,86 +542,105 @@
 
 
 
-<ul>
-<li><a href="#security">security</a><ul>
-<li><a href="#network">network</a></li>
-<li><a href="#privelage">privelage</a></li>
-</ul>
-</li>
-</ul>
-<h1 id="security">security</h1>
-<h3 id="network">network</h3>
-<p><a href="https://aur.archlinux.org/packages/whatip/">whatip</a> ~ <strong><em>AUR</em></strong> ~ gtk application to get info on your  ip</p>
-<p><a href="https://archlinux.org/packages/extra/x86_64/sshguard/">sshguard</a> ~ brute force detector for ssh, exim, vsftpd and more; blocks by ip with iptables</p>
-<p><a href="https://archlinux.org/packages/extra/any/ssh-audit/">ssh-audit</a> ~ ssh config auditor</p>
-<h3 id="privelage">privelage</h3>
-<p><a href="https://archlinux.org/packages/extra/x86_64/opendoas/">doas</a> ~ portable version of OpenBSD&rsquo;s doas command, known for being substantially smaller in size compared to sudo while pursuing the same goal of running command</p>
-<p><a href="https://archlinux.org/packages/core/x86_64/sudo/">sudo</a> ~ command to delegate the ability to run commands as root or another user while providing an audit trail</p>
-<p><a href="https://aur.archlinux.org/packages/polkit-fakesudo">polkit-fakesudo</a> ~ <strong><em>AUR</em></strong> ~ wrapper for polkit that emulates sudo</p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
-<p><a href=""></a></p>
+<h1 id="creating-a-package-repository">Creating a package repository</h1>
+<p>First and most obvious step is creating the GitHub page&hellip; This goes without saying so I&rsquo;ll keep it brief.</p>
+<ol>
+<li>Create repository.</li>
+<li>Enable GitHub pages &amp; <em>deploy from branch</em>.</li>
+</ol>
+<h3 id="1-keys">1. Keys</h3>
+<h4 id="11-gpg-key">1.1. Gpg Key</h4>
+<p>Create a gpg key:</p>
+<div class="highlight"><pre><span></span><code>    gpg --full-generate-key
+</code></pre></div>
+<p>And then to check to make sure it&rsquo;s been created correctly:</p>
+<div class="highlight"><pre><span></span><code>    gpg --list-key
+</code></pre></div>
+<p><em>Take note of the email used and key id: Should contain 40 characters.</em></p>
+<p>Send your gpg key to a server to make sure it&rsquo;s working correctly.</p>
+<div class="highlight"><pre><span></span><code>    gpg --send-keys [GPG-KEY]
+</code></pre></div>
+<p>If successful you should then be able to recieve the key using:</p>
+<div class="highlight"><pre><span></span><code>    gpg --recv-keys [GPG-KEY]
+</code></pre></div>
+<h4 id="12-pacman-key">1.2. Pacman Key</h4>
+<p>Configure pacman to use the gpg key:</p>
+<div class="highlight"><pre><span></span><code>    sudo pacman-key --recv-keys [GPG-KEY]
+</code></pre></div>
+<p>And then locally sign the key:</p>
+<div class="highlight"><pre><span></span><code>    sudo pacman-key --lsign-key [GPG-KEY]
+</code></pre></div>
+<h4 id="makepkg-key">Makepkg Key</h4>
+<p>To build packages signed with this key it needs to be configured in makepkg in <em>/etc/makepkg.conf</em></p>
+<div class="highlight"><pre><span></span><code>    #-- Packager: name/email of the person or organization building packages
+    PACKAGER=&quot;[NAME] &lt;EMAIL&gt;&quot;
+    #-- Specify a key to use for package signing
+    GPGKEY=&quot;[GPG-KEY]&quot;
+</code></pre></div>
+<h3 id="2-repository">2. Repository</h3>
+<p>Create the repository directories:</p>
+<div class="highlight"><pre><span></span><code>    mkdir -p repo/{x86_64,any}
+</code></pre></div>
+<h4 id="21-build-packages">2.1. Build Packages</h4>
+<p>Create a PKGBUILD file; View archwiki <a href="https://wiki.archlinux.org/title/Creating_packages">creating packages</a>.</p>
+<div class="highlight"><pre><span></span><code>    # Maintainer: Your Name &lt;your.email@example.com&gt;
+
+    pkgname=MyPkg
+    pkgver=1.0.0
+    pkgrel=1
+    pkgdesc=&quot;My package&quot;
+    arch=(&#39;any&#39;)
+    url=&quot;https://github.com/[USERNAME]/MyPkg&quot;
+    license=(&#39;GPL&#39;)
+    depends=(&#39;python&#39; &#39;python-pyqt6&#39; &#39;python-pyqt6-webengine&#39; &#39;python-pygments&#39;)
+    source=(&quot;$pkgname-$pkgver.tar.gz&quot;)
+    md5sums=(&#39;SKIP&#39;)
+
+    build() {
+    cd &quot;$srcdir/TxtEd-$pkgver&quot;
+    # Add your build commands here, e.g., make
+    }
+
+    package() {
+    cd &quot;$srcdir/MyPkg-$pkgver&quot;
+    install -Dm755 txted-qt6.py &quot;$pkgdir/usr/bin/mypkg&quot;
+    install -Dm644 txted-qt6.desktop &quot;$pkgdir/usr/share/applications/mypkg.desktop&quot;
+    install -Dm644 mypkg.png &quot;$pkgdir/usr/share/pixmaps/mypkg.png&quot;
+    }
+</code></pre></div>
+<h4 id="22-tarball">2.2. Tarball</h4>
+<p>Create package tarball:</p>
+<div class="highlight"><pre><span></span><code>    tar -czvf MyPkg-1.0.0.tar.gz MyPkg
+</code></pre></div>
+<p>Add the tarball to the repository as a <a href="https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases">release</a>. Tag the new release e.g. v1.0, then upload the relase.</p>
+<h4 id="23-make-package">2.3. Make Package</h4>
+<p>Build the package; this will make two tarballs, <strong>.tar.gz</strong> and <strong>pkg.tar.zst</strong>.</p>
+<div class="highlight"><pre><span></span><code>            makepkpg -si
+</code></pre></div>
+<p>Move the built package tarballs to the appropriate directories, e.g. <em>/repo/x86_64/ /repo/any</em>. The package tarball will have <strong>pkg.tar.zst</strong> in the name.</p>
+<div class="highlight"><pre><span></span><code>            mv ../MyPkg/MyPkg-1.0.0-1-any.pkg.tar.zst repo/x86_64/
+</code></pre></div>
+<h3 id="24-database-files">2.4. Database Files</h3>
+<p>Then generate the package database files:</p>
+<div class="highlight"><pre><span></span><code>            repo-add repo/x86_64/MyPkg.db.tar.gz repo/x86_64/MyPkg-1.0.0-1-any.pkg.tar.zst
+</code></pre></div>
+<p>The repository should now have the following structure:</p>
+<div class="highlight"><pre><span></span><code>    repo/
+    ├── x86_64/
+    │   ├── your-package-1.0.0-1-x86_64.pkg.tar.zst
+    │   ├── your-repo.db.tar.gz
+    │   ├── your-repo.files.tar.gz
+    ├── any/
+    │   ├── your-package-1.0.0-1-any.pkg.tar.zst
+    │   ├── your-repo.db.tar.gz
+    │   ├── your-repo.files.tar.gz
+</code></pre></div>
+<h3 id="3-repository-to-pacman">3. Repository to Pacman</h3>
+<p>Add your repository to pacman in <em>/etc/pacman.conf</em>. Add <em>TrustAll</em> and the repository server.</p>
+<div class="highlight"><pre><span></span><code>            [txted-repo]
+            SigLevel = Optional TrustAll
+            Server = https://[USERNAME].github.io/[REPOSITORY]/repo/x86_64
+</code></pre></div>
 
 
 
@@ -517,30 +671,6 @@
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../install/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Install">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Install
-              </div>
-            </div>
-          </a>
-        
-        
-      </nav>
-    
-  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -558,7 +688,9 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.tabs", "navigation.expand", "navigation.path", "toc.follow", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "search.share", "header.autohide", "navigation.footer", "content.action.edit", "content.code.copy", "content.code.select"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "stable", "provider": "mimi"}}</script>
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.tabs", "navigation.expand", "navigation.path", "toc.follow", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.action.edit", "content.code.copy", "content.code.select"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "stable", "provider": "mimi"}}</script>
     
     
       <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
