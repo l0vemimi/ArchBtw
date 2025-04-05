@@ -81,17 +81,17 @@ Create a PKGBUILD file; View archwiki [creating packages](https://wiki.archlinux
         install -Dm644 mypkg.png "$pkgdir/usr/share/pixmaps/mypkg.png"
         }
 
-#### 2.2. Tarball
+In the **source=** part, put:
 
-Create package tarball:
+                source=("$pkgname-$pkgver.tar.gz")
+
+You need to do this and also **create the tarball** on the initial package build. If pointed at the repository server, it will give an error because theres nothing there...
+
+Create the package tarball:
 
         tar -czvf MyPkg-1.0.0.tar.gz MyPkg
 
-Add the tarball to the repository as a [release](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases). Tag the new release e.g. v1.0, then upload the relase.
-
-#### 2.3. Make Package
-
-Build the package; this will make two tarballs, **.tar.gz** and **pkg.tar.zst**.
+Then you can make the package. Build the package; this will make two tarballs, **.tar.gz** and **pkg.tar.zst**.
 
                 makepkpg -si
 
@@ -99,9 +99,7 @@ Move the built package tarballs to the appropriate directories, e.g. */repo/x86_
 
                 mv ../MyPkg/MyPkg-1.0.0-1-any.pkg.tar.zst repo/x86_64/
 
-### 2.4. Database Files
-
-
+### 2.3. Generate Database
 
 Then generate the package database files:
 
