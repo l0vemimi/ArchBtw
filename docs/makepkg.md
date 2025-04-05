@@ -83,16 +83,29 @@ Create a PKGBUILD file; View archwiki [creating packages](https://wiki.archlinux
 
 #### 2.2. Tarball
 
-Create the package tarball:
+Create package tarball:
 
         tar -czvf MyPkg-1.0.0.tar.gz MyPkg
 
-### 2.3. Database Files
+Add the tarball to the repository as a [release](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases). Tag the new release e.g. v1.0, then upload the relase.
 
-Move the package tarballs to the appropriate package directories, e.g. */repo/x86_64/ /repo/any*; Then generate the package database files:
+#### 2.3. Make Package
 
-        repo-add --sign repo/x86_64/your-repo.db.tar.gz repo/x86_64/*.pkg.tar.zst
-        repo-add --sign repo/any/your-repo.db.tar.gz repo/any/*.pkg.tar.zst
+Build the package; this will make two tarballs, **.tar.gz** and **pkg.tar.zst**.
+
+                makepkpg -si
+
+Move the built package tarballs to the appropriate directories, e.g. */repo/x86_64/ /repo/any*. The package tarball will have **pkg.tar.zst** in the name.
+
+                mv ../MyPkg/MyPkg-1.0.0-1-any.pkg.tar.zst repo/x86_64/
+
+### 2.4. Database Files
+
+
+
+Then generate the package database files:
+
+                repo-add repo/x86_64/MyPkg.db.tar.gz repo/x86_64/MyPkg-1.0.0-1-any.pkg.tar.zst
 
 The repository should now have the following structure:
 
@@ -110,6 +123,6 @@ The repository should now have the following structure:
 
 Add your repository to pacman in */etc/pacman.conf*. Add *TrustAll* and the repository server.
 
-        [your-repo]
-        SigLevel = Optional TrustAll
-        Server = https://<username>.github.io/<repository>/repo/$arch
+                [txted-repo]
+                SigLevel = Optional TrustAll
+                Server = https://[USERNAME].github.io/[REPOSITORY]/repo/x86_64
