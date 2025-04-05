@@ -46,7 +46,7 @@ To build packages signed with this key it needs to be configured in makepkg in *
         #-- Specify a key to use for package signing
         GPGKEY="[GPG-KEY]"
 
-### 2. Repository
+### 2. Repository Package
 
 Create the repository directories:
 
@@ -54,7 +54,7 @@ Create the repository directories:
 
 #### 2.1. Build Packages
 
-Create a PKGBUILD file; View archwiki [creating packages](https://wiki.archlinux.org/title/Creating_packages).
+Create a PKGBUILD file for your package; View archwiki [creating packages](https://wiki.archlinux.org/title/Creating_packages).
 
         # Maintainer: Your Name <your.email@example.com>
 
@@ -85,7 +85,9 @@ In the **source=** part, put:
 
                 source=("$pkgname-$pkgver.tar.gz")
 
-You need to do this and also **create the tarball** on the initial package build. If pointed at the repository server, it will give an error because theres nothing there... Later add source=("$pkgname-$pkgver.tar.gz::https://github.com/[USERNAME]/[REPOSITORY]/releases/download/v$pkgver/txted-$pkgver.tar.gz")
+You need to do this and also **create the tarball** on the initial package build. If pointed at the repository server, it will give an error because theres nothing there... Later add:
+
+        source=("$pkgname-$pkgver.tar.gz::https://github.com/[USERNAME]/[REPOSITORY]/raw/main/repo/x86_64/mypkg-$pkgver-1-any.pkg.tar.zst")
 
 Create the package tarball:
 
@@ -95,29 +97,30 @@ Then you can make the package. Build the package; this will make two tarballs, *
 
                 makepkpg -si
 
-Move the built package tarballs to the appropriate directories, e.g. */repo/x86_64/ /repo/any*. The package tarball will have **pkg.tar.zst** in the name.
+Move the built package tarballs to the appropriate directories, e.g. */repo/x86_64/ /repo/any*. The package tarball will have **.pkg.tar.zst** in the name.
 
                 mv ../MyPkg/MyPkg-1.0.0-1-any.pkg.tar.zst repo/x86_64/
 
 ### 2.2. Generate Database
 
-Then generate the package database files:
+Generate the package database files and add the **package** ( *.pkg.tar.zst ) to the **repository database** ( *.db.tar.gz ):
 
-                repo-add repo/x86_64/MyPkg.db.tar.gz repo/x86_64/MyPkg-1.0.0-1-any.pkg.tar.zst
+
+                repo-add repo/x86_64/PkgRepo.db.tar.gz repo/x86_64/MyPkg-1.0.0-1-any.pkg.tar.zst
 
 The repository should now have the following structure:
 
         repo/
         ├── x86_64/
-        │   ├── your-package-1.0.0-1-x86_64.pkg.tar.zst
-        │   ├── your-repo.db.tar.gz
-        │   ├── your-repo.files.tar.gz
+        │   ├── MyPkg-1.0.0-1-x86_64.pkg.tar.zst
+        │   ├── PkgRepo.db.tar.gz
+        │   ├── PkgRepo.files.tar.gz
         ├── any/
-        │   ├── your-package-1.0.0-1-any.pkg.tar.zst
-        │   ├── your-repo.db.tar.gz
-        │   ├── your-repo.files.tar.gz
+        │   ├── MyPkg-1.0.0-1-x86_64.pkg.tar.zst
+        │   ├── PkgRepo.db.tar.gz
+        │   ├── PkgRepo.files.tar.gz
 
-### 3. Repository to Pacman
+### 3. Pacman Config
 
 Add your repository to pacman in */etc/pacman.conf*. Add *TrustAll* and the repository server.
 
