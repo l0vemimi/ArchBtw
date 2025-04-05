@@ -459,13 +459,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-repository" class="md-nav__link">
+  <a href="#2-repository-package" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Repository
+      2. Repository Package
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Repository">
+    <nav class="md-nav" aria-label="2. Repository Package">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -492,9 +492,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-repository-to-pacman" class="md-nav__link">
+  <a href="#3-pacman-config" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Repository to Pacman
+      3. Pacman Config
     </span>
   </a>
   
@@ -559,12 +559,12 @@
     #-- Specify a key to use for package signing
     GPGKEY=&quot;[GPG-KEY]&quot;
 </code></pre></div>
-<h3 id="2-repository">2. Repository</h3>
+<h3 id="2-repository-package">2. Repository Package</h3>
 <p>Create the repository directories:</p>
 <div class="highlight"><pre><span></span><code>    mkdir -p repo/{x86_64,any}
 </code></pre></div>
 <h4 id="21-build-packages">2.1. Build Packages</h4>
-<p>Create a PKGBUILD file; View archwiki <a href="https://wiki.archlinux.org/title/Creating_packages">creating packages</a>.</p>
+<p>Create a PKGBUILD file for your package; View archwiki <a href="https://wiki.archlinux.org/title/Creating_packages">creating packages</a>.</p>
 <div class="highlight"><pre><span></span><code>    # Maintainer: Your Name &lt;your.email@example.com&gt;
 
     pkgname=MyPkg
@@ -593,32 +593,34 @@
 <p>In the <strong>source=</strong> part, put:</p>
 <div class="highlight"><pre><span></span><code>            source=(&quot;$pkgname-$pkgver.tar.gz&quot;)
 </code></pre></div>
-<p>You need to do this and also <strong>create the tarball</strong> on the initial package build. If pointed at the repository server, it will give an error because theres nothing there&hellip; Later add source=(&ldquo;$pkgname-$pkgver.tar.gz::https://github.com/[USERNAME]/[REPOSITORY]/releases/download/v$pkgver/txted-$pkgver.tar.gz&rdquo;)</p>
+<p>You need to do this and also <strong>create the tarball</strong> on the initial package build. If pointed at the repository server, it will give an error because theres nothing there&hellip; Later add:</p>
+<div class="highlight"><pre><span></span><code>    source=(&quot;$pkgname-$pkgver.tar.gz::https://github.com/[USERNAME]/[REPOSITORY]/raw/main/repo/x86_64/mypkg-$pkgver-1-any.pkg.tar.zst&quot;)
+</code></pre></div>
 <p>Create the package tarball:</p>
 <div class="highlight"><pre><span></span><code>    tar -czvf MyPkg-1.0.0.tar.gz MyPkg
 </code></pre></div>
 <p>Then you can make the package. Build the package; this will make two tarballs, <strong>.tar.gz</strong> and <strong>pkg.tar.zst</strong>.</p>
 <div class="highlight"><pre><span></span><code>            makepkpg -si
 </code></pre></div>
-<p>Move the built package tarballs to the appropriate directories, e.g. <em>/repo/x86_64/ /repo/any</em>. The package tarball will have <strong>pkg.tar.zst</strong> in the name.</p>
+<p>Move the built package tarballs to the appropriate directories, e.g. <em>/repo/x86_64/ /repo/any</em>. The package tarball will have <strong>.pkg.tar.zst</strong> in the name.</p>
 <div class="highlight"><pre><span></span><code>            mv ../MyPkg/MyPkg-1.0.0-1-any.pkg.tar.zst repo/x86_64/
 </code></pre></div>
 <h3 id="22-generate-database">2.2. Generate Database</h3>
-<p>Then generate the package database files:</p>
-<div class="highlight"><pre><span></span><code>            repo-add repo/x86_64/MyPkg.db.tar.gz repo/x86_64/MyPkg-1.0.0-1-any.pkg.tar.zst
+<p>Generate the package database files and add the <strong>package</strong> ( <em>.pkg.tar.zst ) to the </em><em>repository database</em><em> ( </em>.db.tar.gz ):</p>
+<div class="highlight"><pre><span></span><code>            repo-add repo/x86_64/PkgRepo.db.tar.gz repo/x86_64/MyPkg-1.0.0-1-any.pkg.tar.zst
 </code></pre></div>
 <p>The repository should now have the following structure:</p>
 <div class="highlight"><pre><span></span><code>    repo/
     ├── x86_64/
-    │   ├── your-package-1.0.0-1-x86_64.pkg.tar.zst
-    │   ├── your-repo.db.tar.gz
-    │   ├── your-repo.files.tar.gz
+    │   ├── MyPkg-1.0.0-1-x86_64.pkg.tar.zst
+    │   ├── PkgRepo.db.tar.gz
+    │   ├── PkgRepo.files.tar.gz
     ├── any/
-    │   ├── your-package-1.0.0-1-any.pkg.tar.zst
-    │   ├── your-repo.db.tar.gz
-    │   ├── your-repo.files.tar.gz
+    │   ├── MyPkg-1.0.0-1-x86_64.pkg.tar.zst
+    │   ├── PkgRepo.db.tar.gz
+    │   ├── PkgRepo.files.tar.gz
 </code></pre></div>
-<h3 id="3-repository-to-pacman">3. Repository to Pacman</h3>
+<h3 id="3-pacman-config">3. Pacman Config</h3>
 <p>Add your repository to pacman in <em>/etc/pacman.conf</em>. Add <em>TrustAll</em> and the repository server.</p>
 <div class="highlight"><pre><span></span><code>            [txted-repo]
             SigLevel = Optional TrustAll
