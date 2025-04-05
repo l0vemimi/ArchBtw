@@ -103,22 +103,37 @@ Move the built package tarballs to the appropriate directories, e.g. */repo/x86_
 
 ### 2.2. Generate Database
 
-Generate the package database files and add the **package** ( *.pkg.tar.zst ) to the **repository database** ( *.db.tar.gz ):
-
+Generate the package database files and add the **package**: *.pkg.tar.zst to the **repository database**: *.db.tar.gz:
 
                 repo-add repo/x86_64/PkgRepo.db.tar.gz repo/x86_64/MyPkg-1.0.0-1-any.pkg.tar.zst
 
 The repository should now have the following structure:
 
-        repo/
-        ├── x86_64/
-        │   ├── MyPkg-1.0.0-1-x86_64.pkg.tar.zst
-        │   ├── PkgRepo.db.tar.gz
-        │   ├── PkgRepo.files.tar.gz
-        ├── any/
-        │   ├── MyPkg-1.0.0-1-x86_64.pkg.tar.zst
-        │   ├── PkgRepo.db.tar.gz
-        │   ├── PkgRepo.files.tar.gz
+                repo/
+                ├── x86_64/
+                │   ├── MyPkg-1.0.0-1-x86_64.pkg.tar.zst
+                │   ├── PkgRepo.db.tar.gz
+                │   ├── PkgRepo.files.tar.gz
+                ├── any/
+                │   ├── MyPkg-1.0.0-1-x86_64.pkg.tar.zst
+                │   ├── PkgRepo.db.tar.gz
+                │   ├── PkgRepo.files.tar.gz
+
+Rename the generated databases from tarballs to *.db and *.files files:
+
+                mv PkgRepo.db.tar.gz PkgRepo.db
+
+                mv PkgRepo.files.tar.gz PkgRepo.files
+
+The repository should now look like below and should now be ready to be used.
+
+                ├── repo/
+                │       └── x86_64/
+                │       ├── PkgRepo.db
+                │       ├── PkgRepo.files
+                │       ├── MyPkg-1.0.0-1-any.pkg.tar.zst
+
+
 
 ### 3. Pacman Config
 
