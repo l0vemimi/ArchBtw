@@ -483,9 +483,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#23-generate-database" class="md-nav__link">
+  <a href="#22-generate-database" class="md-nav__link">
     <span class="md-ellipsis">
-      2.3. Generate Database
+      2.2. Generate Database
     </span>
   </a>
   
@@ -603,7 +603,7 @@
 <p>Move the built package tarballs to the appropriate directories, e.g. <em>/repo/x86_64/ /repo/any</em>. The package tarball will have <strong>pkg.tar.zst</strong> in the name.</p>
 <div class="highlight"><pre><span></span><code>            mv ../MyPkg/MyPkg-1.0.0-1-any.pkg.tar.zst repo/x86_64/
 </code></pre></div>
-<h3 id="23-generate-database">2.3. Generate Database</h3>
+<h3 id="22-generate-database">2.2. Generate Database</h3>
 <p>Then generate the package database files:</p>
 <div class="highlight"><pre><span></span><code>            repo-add repo/x86_64/MyPkg.db.tar.gz repo/x86_64/MyPkg-1.0.0-1-any.pkg.tar.zst
 </code></pre></div>
@@ -623,6 +623,9 @@
 <div class="highlight"><pre><span></span><code>            [txted-repo]
             SigLevel = Optional TrustAll
             Server = https://[USERNAME].github.io/[REPOSITORY]/repo/x86_64
+</code></pre></div>
+<p>Make sure to update the pacman database:</p>
+<div class="highlight"><pre><span></span><code>            sudo pacman -Sy
 </code></pre></div>
 
 
