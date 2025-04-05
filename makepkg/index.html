@@ -486,15 +486,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#23-make-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3. Make Package
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#23-database-files" class="md-nav__link">
+  <a href="#24-database-files" class="md-nav__link">
     <span class="md-ellipsis">
-      2.3. Database Files
+      2.4. Database Files
     </span>
   </a>
   
@@ -600,13 +609,20 @@
     }
 </code></pre></div>
 <h4 id="22-tarball">2.2. Tarball</h4>
-<p>Create the package tarball:</p>
+<p>Create package tarball:</p>
 <div class="highlight"><pre><span></span><code>    tar -czvf MyPkg-1.0.0.tar.gz MyPkg
 </code></pre></div>
-<h3 id="23-database-files">2.3. Database Files</h3>
-<p>Move the package tarballs to the appropriate package directories, e.g. <em>/repo/x86_64/ /repo/any</em>; Then generate the package database files:</p>
-<div class="highlight"><pre><span></span><code>    repo-add --sign repo/x86_64/your-repo.db.tar.gz repo/x86_64/*.pkg.tar.zst
-    repo-add --sign repo/any/your-repo.db.tar.gz repo/any/*.pkg.tar.zst
+<p>Add the tarball to the repository as a <a href="https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases">release</a>. Tag the new release e.g. v1.0, then upload the relase.</p>
+<h4 id="23-make-package">2.3. Make Package</h4>
+<p>Build the package; this will make two tarballs, <strong>.tar.gz</strong> and <strong>pkg.tar.zst</strong>.</p>
+<div class="highlight"><pre><span></span><code>            makepkpg -si
+</code></pre></div>
+<p>Move the built package tarballs to the appropriate directories, e.g. <em>/repo/x86_64/ /repo/any</em>. The package tarball will have <strong>pkg.tar.zst</strong> in the name.</p>
+<div class="highlight"><pre><span></span><code>            mv ../MyPkg/MyPkg-1.0.0-1-any.pkg.tar.zst repo/x86_64/
+</code></pre></div>
+<h3 id="24-database-files">2.4. Database Files</h3>
+<p>Then generate the package database files:</p>
+<div class="highlight"><pre><span></span><code>            repo-add repo/x86_64/MyPkg.db.tar.gz repo/x86_64/MyPkg-1.0.0-1-any.pkg.tar.zst
 </code></pre></div>
 <p>The repository should now have the following structure:</p>
 <div class="highlight"><pre><span></span><code>    repo/
@@ -621,9 +637,9 @@
 </code></pre></div>
 <h3 id="3-repository-to-pacman">3. Repository to Pacman</h3>
 <p>Add your repository to pacman in <em>/etc/pacman.conf</em>. Add <em>TrustAll</em> and the repository server.</p>
-<div class="highlight"><pre><span></span><code>    [your-repo]
-    SigLevel = Optional TrustAll
-    Server = https://&lt;username&gt;.github.io/&lt;repository&gt;/repo/$arch
+<div class="highlight"><pre><span></span><code>            [txted-repo]
+            SigLevel = Optional TrustAll
+            Server = https://[USERNAME].github.io/[REPOSITORY]/repo/x86_64
 </code></pre></div>
 
 
