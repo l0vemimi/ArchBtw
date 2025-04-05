@@ -99,7 +99,7 @@ Move the built package tarballs to the appropriate directories, e.g. */repo/x86_
 
                 mv ../MyPkg/MyPkg-1.0.0-1-any.pkg.tar.zst repo/x86_64/
 
-### 2.3. Generate Database
+### 2.2. Generate Database
 
 Then generate the package database files:
 
@@ -124,3 +124,7 @@ Add your repository to pacman in */etc/pacman.conf*. Add *TrustAll* and the repo
                 [txted-repo]
                 SigLevel = Optional TrustAll
                 Server = https://[USERNAME].github.io/[REPOSITORY]/repo/x86_64
+
+Make sure to update the pacman database:
+
+                sudo pacman -Sy
