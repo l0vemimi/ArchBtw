@@ -606,19 +606,31 @@
 <div class="highlight"><pre><span></span><code>            mv ../MyPkg/MyPkg-1.0.0-1-any.pkg.tar.zst repo/x86_64/
 </code></pre></div>
 <h3 id="22-generate-database">2.2. Generate Database</h3>
-<p>Generate the package database files and add the <strong>package</strong> ( <em>.pkg.tar.zst ) to the </em><em>repository database</em><em> ( </em>.db.tar.gz ):</p>
+<p>Generate the package database files and add the <strong>package</strong>: <em>.pkg.tar.zst to the </em><em>repository database</em><em>: </em>.db.tar.gz:</p>
 <div class="highlight"><pre><span></span><code>            repo-add repo/x86_64/PkgRepo.db.tar.gz repo/x86_64/MyPkg-1.0.0-1-any.pkg.tar.zst
 </code></pre></div>
 <p>The repository should now have the following structure:</p>
-<div class="highlight"><pre><span></span><code>    repo/
-    ├── x86_64/
-    │   ├── MyPkg-1.0.0-1-x86_64.pkg.tar.zst
-    │   ├── PkgRepo.db.tar.gz
-    │   ├── PkgRepo.files.tar.gz
-    ├── any/
-    │   ├── MyPkg-1.0.0-1-x86_64.pkg.tar.zst
-    │   ├── PkgRepo.db.tar.gz
-    │   ├── PkgRepo.files.tar.gz
+<div class="highlight"><pre><span></span><code>            repo/
+            ├── x86_64/
+            │   ├── MyPkg-1.0.0-1-x86_64.pkg.tar.zst
+            │   ├── PkgRepo.db.tar.gz
+            │   ├── PkgRepo.files.tar.gz
+            ├── any/
+            │   ├── MyPkg-1.0.0-1-x86_64.pkg.tar.zst
+            │   ├── PkgRepo.db.tar.gz
+            │   ├── PkgRepo.files.tar.gz
+</code></pre></div>
+<p>Rename the generated databases from tarballs to <em>.db and </em>.files files:</p>
+<div class="highlight"><pre><span></span><code>            mv PkgRepo.db.tar.gz PkgRepo.db
+
+            mv PkgRepo.files.tar.gz PkgRepo.files
+</code></pre></div>
+<p>The repository should now look like below and should now be ready to be used.</p>
+<div class="highlight"><pre><span></span><code>            ├── repo/
+            │       └── x86_64/
+            │       ├── PkgRepo.db
+            │       ├── PkgRepo.files
+            │       ├── MyPkg-1.0.0-1-any.pkg.tar.zst
 </code></pre></div>
 <h3 id="3-pacman-config">3. Pacman Config</h3>
 <p>Add your repository to pacman in <em>/etc/pacman.conf</em>. Add <em>TrustAll</em> and the repository server.</p>
