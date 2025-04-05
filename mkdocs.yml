@@ -1,13 +1,13 @@
 # material wiki: https://squidfunk.github.io/mkdocs-material
-site_name: archbtw
+site_name: ArchBtw
 site_author: mimi
-site_url: https://l0vemimi.github.io/arch-btw/
+site_url: https://l0vemimi.github.io/ArchBtw/
 #edit_uri: edit/main/docs/ # if the repo is tied to the doc
 nav:
   - Home: 'index.md'
   - Install: 'install.md'
-  - Pkg: 'pkg.md'
-#  - wiki: 'wiki.md'
+  - PkgList: 'pkglist.md'
+  - MakePkg: 'makepkg.md'
 extra_css:
   - stylesheets/extra.css
 dev_addr: 127.0.0.1:8001
@@ -19,7 +19,7 @@ theme:
   palette:
     primary: white
 #    primary: custom
-    accent: lightblue
+    accent: light blue 
     scheme: default  # light mode
 #    scheme: slate    # dark mode
       #
@@ -82,7 +82,7 @@ theme:
     - search.highlight
     - search.share
     - header.autohide
-    - navigation.footer
+#    - navigation.footer
     - content.action.edit
     - content.code.copy
     - content.code.select
@@ -138,25 +138,3 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
-      custom_checkbox: true
-      #
-      ## navigation, table of contents, path can be hidden from the sidebar by putting these
-      ## lines into the .md document
-      #---
-      #hide:
-      #  - navigation
-      #  - toc
-      #  - path
-      #---
-      #
-      # Page title
-      #...
-      ## to exclude search items put this into the .md documen
-      #---
-      #search:
-      #  exclude: true
-      #---
-      # Page title
-      #...
-      ## or to exclude content from search place below as relevant
-      # ## Section 2 { data-search-exclude }
