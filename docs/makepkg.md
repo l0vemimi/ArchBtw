@@ -85,7 +85,7 @@ In the **source=** part, put:
 
                 source=("$pkgname-$pkgver.tar.gz")
 
-You need to do this and also **create the tarball** on the initial package build. If pointed at the repository server, it will give an error because theres nothing there...
+You need to do this and also **create the tarball** on the initial package build. If pointed at the repository server, it will give an error because theres nothing there... Later add source=("$pkgname-$pkgver.tar.gz::https://github.com/[USERNAME]/[REPOSITORY]/releases/download/v$pkgver/txted-$pkgver.tar.gz")
 
 Create the package tarball:
 

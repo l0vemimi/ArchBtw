@@ -593,7 +593,7 @@
 <p>In the <strong>source=</strong> part, put:</p>
 <div class="highlight"><pre><span></span><code>            source=(&quot;$pkgname-$pkgver.tar.gz&quot;)
 </code></pre></div>
-<p>You need to do this and also <strong>create the tarball</strong> on the initial package build. If pointed at the repository server, it will give an error because theres nothing there&hellip;</p>
+<p>You need to do this and also <strong>create the tarball</strong> on the initial package build. If pointed at the repository server, it will give an error because theres nothing there&hellip; Later add source=(&ldquo;$pkgname-$pkgver.tar.gz::https://github.com/[USERNAME]/[REPOSITORY]/releases/download/v$pkgver/txted-$pkgver.tar.gz&rdquo;)</p>
 <p>Create the package tarball:</p>
 <div class="highlight"><pre><span></span><code>    tar -czvf MyPkg-1.0.0.tar.gz MyPkg
 </code></pre></div>
