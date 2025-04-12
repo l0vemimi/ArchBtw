@@ -1,10 +1,11 @@
-- [security](#security)
-    - [network](#network)
-    - [privelage](#privelage)
+- [Security](#security)
+    - [Network](#network)
+    - [Privelage](#privelage)
+    - [Audit](#audit)
 
-# security
+# Security
 
-### network
+### Network
 
 [whatip](https://aur.archlinux.org/packages/whatip/): ***AUR***: Gtk application to get info on your  ip.
 
@@ -12,10 +13,16 @@
 
 [ssh-audit](https://archlinux.org/packages/extra/any/ssh-audit/): SSH config auditor.
 
-### privelage
+### Privelage
 
-[doas](https://archlinux.org/packages/extra/x86_64/opendoas/): Portable version of OpenBSD's doas command, known for being substantially smaller in size compared to sudo while pursuing the same goal of running command
+[doas](https://archlinux.org/packages/extra/x86_64/opendoas/): Portable version of OpenBSD's doas command, known for being substantially smaller in size compared to sudo while pursuing the same goal of running command.
 
-[sudo](https://archlinux.org/packages/core/x86_64/sudo/): Command to delegate the ability to run commands as root or another user while providing an audit trail
+[sudo](https://archlinux.org/packages/core/x86_64/sudo/): Command to delegate the ability to run commands as root or another user while providing an audit trail.
 
 [polkit-fakesudo](https://aur.archlinux.org/packages/polkit-fakesudo): ***AUR***: Wrapper for polkit that emulates sudo
+
+### Audit
+
+[rkhunter](https://archlinux.org/packages/extra/any/rkhunter/): Checks for presence of rootkits.
+
+[lynis](https://archlinux.org/packages/extra/any/lynis/): System auditing tool with tips on hardening your system.

@@ -8,6 +8,7 @@ nav:
   - Install: 'install.md'
   - PkgList: 'pkglist.md'
   - MakePkg: 'makepkg.md'
+  - CommandLine: 'cli.md'
 extra_css:
   - stylesheets/extra.css
 dev_addr: 127.0.0.1:8001

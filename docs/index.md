@@ -3,3 +3,5 @@
 [MakePkg](makepkg.md): Guidelines for creating your own personal package repository using github pages.
 
 [PkgList](pkglist.md): Package list for all different categories.
+
+[CommandLine](cli.md): Guidelines for cli usage, and term shortcuts.
