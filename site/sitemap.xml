@@ -5,23 +5,19 @@
          <lastmod>2025-04-18</lastmod>
     </url>
     <url>
-         <loc>https://l0vemimi.github.io/ArchBtw/cli/</loc>
-         <lastmod>2025-04-18</lastmod>
-    </url>
-    <url>
-         <loc>https://l0vemimi.github.io/ArchBtw/dev/</loc>
-         <lastmod>2025-04-18</lastmod>
-    </url>
-    <url>
-         <loc>https://l0vemimi.github.io/ArchBtw/install/</loc>
-         <lastmod>2025-04-18</lastmod>
-    </url>
-    <url>
-         <loc>https://l0vemimi.github.io/ArchBtw/makepkg/</loc>
-         <lastmod>2025-04-18</lastmod>
-    </url>
-    <url>
          <loc>https://l0vemimi.github.io/ArchBtw/pkglist/</loc>
+         <lastmod>2025-04-18</lastmod>
+    </url>
+    <url>
+         <loc>https://l0vemimi.github.io/ArchBtw/manpages/install/</loc>
+         <lastmod>2025-04-18</lastmod>
+    </url>
+    <url>
+         <loc>https://l0vemimi.github.io/ArchBtw/manpages/pacman/makepkg/</loc>
+         <lastmod>2025-04-18</lastmod>
+    </url>
+    <url>
+         <loc>https://l0vemimi.github.io/ArchBtw/manpages/system/system/</loc>
          <lastmod>2025-04-18</lastmod>
     </url>
 </urlset>

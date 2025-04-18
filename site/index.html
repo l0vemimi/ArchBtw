@@ -14,7 +14,7 @@
       
       
       
-        <link rel="next" href="install/">
+        <link rel="next" href="manpages/install/">
       
       
       <link rel="icon" href="arch.png">
@@ -72,6 +72,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#manpages" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -203,17 +208,28 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="install/" class="md-tabs__link">
-        
+    
+    
+      
+  
+  
   
   
     
+    
+      <li class="md-tabs__item">
+        <a href="manpages/install/" class="md-tabs__link">
+          
   
-  Install
+  
+  ManPages
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
+  
+
+    
   
 
       
@@ -229,64 +245,7 @@
   
     
   
-  PkgList
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="makepkg/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  MakePkg
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="cli/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  CommandLine
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="dev/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  DevDocs
+  PackageList
 
       </a>
     </li>
@@ -340,6 +299,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="." class="md-nav__link md-nav__link--active">
         
@@ -353,6 +327,52 @@
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-pacman" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Pacman
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-system-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. System Admin
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -363,8 +383,98 @@
   
   
   
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ManPages
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ManPages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="install/" class="md-nav__link">
+      <a href="manpages/install/" class="md-nav__link">
         
   
   
@@ -375,6 +485,174 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    System Admin
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            System Admin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="manpages/system/system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pacman
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Pacman
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="manpages/pacman/makepkg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MakePkg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -391,73 +669,7 @@
   
   
   <span class="md-ellipsis">
-    PkgList
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="makepkg/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    MakePkg
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="cli/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    CommandLine
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="dev/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    DevDocs
+    PackageList
     
   </span>
   
@@ -483,12 +695,24 @@
 
 
 
-  <h1>Home</h1>
-
-<p><a href="install/">Installation Guide</a>: Archlinux installation guide lines for both regular users and arch veterans. Brief installation guide with two modes: <strong><em>Regular:</em></strong> Brief somewhat detailed guidelines; should be used when you know what you&rsquo;re doing but still need some reminders here and there; <strong><em>Veteran:</em></strong> Very very basic no bullshit, no bloat guidelines, quiet literally just a simple list to quickly check against to make sure you&rsquo;ve got it all down.</p>
-<p><a href="makepkg/">MakePkg</a>: Guidelines for creating your own personal package repository using github pages.</p>
-<p><a href="pkglist/">PkgList</a>: Package list for all different categories.</p>
-<p><a href="cli/">CommandLine</a>: Guidelines for cli usage, and term shortcuts.</p>
+<ul>
+<li><a href="#manpages">ManPages</a><ul>
+<li><a href="#1-installation">1. Installation</a></li>
+<li><a href="#2-pacman">2. Pacman</a></li>
+<li><a href="#3-system-admin">3. System Admin</a></li>
+</ul>
+</li>
+<li><a href="#package-list">Package List</a></li>
+</ul>
+<h1 id="manpages">ManPages</h1>
+<h3 id="1-installation">1. Installation</h3>
+<p><a href="install.md">Installation Guide</a>: Archlinux installation guide lines for both regular users and arch veterans. Brief installation guide with two modes: <strong><em>Regular:</em></strong> Brief somewhat detailed guidelines; should be used when you know what you&rsquo;re doing but still need some reminders here and there; <strong><em>Veteran:</em></strong> Very very basic no bullshit, no bloat guidelines, quiet literally just a simple list to quickly check against to make sure you&rsquo;ve got it all down.</p>
+<h3 id="2-pacman">2. Pacman</h3>
+<p><a href="manpages/pacman/makepkg/">MakePkg</a>: Guidelines for creating your own personal package repository using github pages.</p>
+<h3 id="3-system-admin">3. System Admin</h3>
+<p><a href="manpages/system/system/">System</a>: SysAdmin guides for linux.</p>
+<h1 id="package-list">Package List</h1>
+<p><a href="pkglist/">Package List</a>: Package list for all different categories.</p>
 
 
 

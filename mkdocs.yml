@@ -5,11 +5,14 @@ site_url: https://l0vemimi.github.io/ArchBtw/
 #edit_uri: edit/main/docs/ # if the repo is tied to the doc
 nav:
   - Home: 'index.md'
-  - Install: 'install.md'
-  - PkgList: 'pkglist.md'
-  - MakePkg: 'makepkg.md'
-  - CommandLine: 'cli.md'
-  - DevDocs: 'dev.md'
+  - ManPages:
+    - Installation:
+      - Install: 'manpages/install.md'
+    - System Admin:
+      - System: 'manpages/system/system.md'
+    - Pacman:
+      - MakePkg: 'manpages/pacman/makepkg.md'
+  - PackageList: 'pkglist.md'
 extra_css:
   - stylesheets/extra.css
 dev_addr: 127.0.0.1:8001
