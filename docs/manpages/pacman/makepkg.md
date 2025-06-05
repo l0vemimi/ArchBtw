@@ -99,7 +99,7 @@ You need to do this and also **create the tarball** on the initial package build
 
         source=("$pkgname-$pkgver.tar.gz::https://github.com/[USERNAME]/[REPOSITORY]/raw/main/repo/x86_64/mypkg-$pkgver-1-any.pkg.tar.zst")
 
-### 4. Tarball
+### 4. Making Package
 
 You've got your chosen repository prepared, created the PKGBUILD, now create the package tarball:
 
@@ -113,7 +113,7 @@ Move the built package tarballs to the appropriate directories, e.g. */repo/x86_
 
                 mv ../TxtEd/TxtEd-1.0.0-1-any.pkg.tar.zst repo/x86_64/
 
-#### 4.1. Gen DB
+#### 4.1. Generate Database
 
 Generate the package database files and add the **package**: *.pkg.tar.zst to the **repository database**: *.db.tar.gz:
 
@@ -131,27 +131,19 @@ The repository should now have the following structure:
                 │   ├── ArchPkg.db.tar.gz
                 │   ├── ArchPkg.files.tar.gz
 
-For pacman to see the new db you need to rename the generated databases from tarballs to *.db and *.files files:
-
-                mv ArchPkg.db.tar.gz ArchPkg.db
-
-                mv ArchPkg.files.tar.gz ArchPkg.files
-
-The repository should now look like below and should now be ready to be used.
-
-                ├── repo/
-                │       └── x86_64/
-                │       ├── ArchPkg.db
-                │       ├── ArchPkg.files
-                │       ├── TxtEd-1.0.0-1-any.pkg.tar.zst
-
-#### 4.1.1 Sign DB
+#### 4.1.1 Sign Database
 
 Sign the update db files:
 
                 gpg --detach-sign --use-agent --armor --output ArchPkg.db.tar.gz.sig ArchPkg.db.tar.gz
 
-### 2.4. Update
+#### 4.2. Make Package Source
+
+Make a source package which includes the PKGBUILD + files:
+
+                makepkg --source
+
+### 5. Update
 
 Make sure to update the pacman database:
 
