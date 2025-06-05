@@ -626,6 +626,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#configuration-first-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration: First Run
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration: First Run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#1-keys" class="md-nav__link">
     <span class="md-ellipsis">
       1. Keys
@@ -653,43 +663,43 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#makepkg-key" class="md-nav__link">
+  <a href="#2-pacman-config" class="md-nav__link">
     <span class="md-ellipsis">
-      Makepkg Key
+      2. Pacman Config
     </span>
   </a>
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-repository-package" class="md-nav__link">
+          <li class="md-nav__item">
+  <a href="#3-repository" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Repository Package
+      3. Repository
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Repository Package">
+    <nav class="md-nav" aria-label="3. Repository">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21-build-packages" class="md-nav__link">
+  <a href="#31-pkgbuild" class="md-nav__link">
     <span class="md-ellipsis">
-      2.1. Build Packages
+      3.1. PKGBUILD
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#211-packing-the-repository" class="md-nav__link">
+  <a href="#4-tarball" class="md-nav__link">
     <span class="md-ellipsis">
-      2.1.1 Packing the Repository
+      4. Tarball
     </span>
   </a>
   
@@ -699,8 +709,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#22-generate-database" class="md-nav__link">
     <span class="md-ellipsis">
       2.2. Generate Database
@@ -708,13 +718,18 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#3-pacman-config" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#23-update" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Pacman Config
+      2.3. Update
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -780,7 +795,9 @@
 
 
 
-<h1 id="creating-a-package-repository">Creating a package repository</h1>
+<h1 id="creating-a-package-repository">Creating a Package Repository</h1>
+<p><strong>Skip to</strong> <a href="#4-tarball">4. Tarball</a> <strong>for a quick recap</strong> on repo-add.</p>
+<h2 id="configuration-first-run">Configuration: First Run</h2>
 <p>First and most obvious step is creating the GitHub page&hellip; This goes without saying so I&rsquo;ll keep it brief.</p>
 <ol>
 <li>Create repository.</li>
@@ -808,18 +825,23 @@
 <p>And then locally sign the key:</p>
 <div class="highlight"><pre><span></span><code>    sudo pacman-key --lsign-key [GPG-KEY]
 </code></pre></div>
-<h4 id="makepkg-key">Makepkg Key</h4>
 <p>To build packages signed with this key it needs to be configured in makepkg in <em>/etc/makepkg.conf</em></p>
 <div class="highlight"><pre><span></span><code>    #-- Packager: name/email of the person or organization building packages
     PACKAGER=&quot;[NAME] &lt;EMAIL&gt;&quot;
     #-- Specify a key to use for package signing
     GPGKEY=&quot;[GPG-KEY]&quot;
 </code></pre></div>
-<h3 id="2-repository-package">2. Repository Package</h3>
+<h3 id="2-pacman-config">2. Pacman Config</h3>
+<p>Add your repository to pacman in <em>/etc/pacman.conf</em>. Add <em>TrustAll</em> and the repository server.</p>
+<div class="highlight"><pre><span></span><code>            [txted-repo]
+            SigLevel = Optional TrustAll
+            Server = https://[USERNAME].github.io/[REPOSITORY]/repo/x86_64
+</code></pre></div>
+<h3 id="3-repository">3. Repository</h3>
 <p>Create the repository directories:</p>
 <div class="highlight"><pre><span></span><code>    mkdir -p repo/{x86_64,any}
 </code></pre></div>
-<h4 id="21-build-packages">2.1. Build Packages</h4>
+<h4 id="31-pkgbuild">3.1. PKGBUILD</h4>
 <p>Create a PKGBUILD file for your package; View archwiki <a href="https://wiki.archlinux.org/title/Creating_packages">creating packages</a>.</p>
 <div class="highlight"><pre><span></span><code>    # Maintainer: Your Name &lt;your.email@example.com&gt;
 
@@ -852,7 +874,7 @@
 <p>You need to do this and also <strong>create the tarball</strong> on the initial package build. If pointed at the repository server, it will give an error because theres nothing there&hellip; Later add:</p>
 <div class="highlight"><pre><span></span><code>    source=(&quot;$pkgname-$pkgver.tar.gz::https://github.com/[USERNAME]/[REPOSITORY]/raw/main/repo/x86_64/mypkg-$pkgver-1-any.pkg.tar.zst&quot;)
 </code></pre></div>
-<h4 id="211-packing-the-repository">2.1.1 Packing the Repository</h4>
+<h4 id="4-tarball">4. Tarball</h4>
 <p>You&rsquo;ve got your chosen repository prepared, created the PKGBUILD, now create the package tarball:</p>
 <div class="highlight"><pre><span></span><code>    tar -czvf TxtEd-1.0.0.tar.gz TxtEd
 </code></pre></div>
@@ -888,12 +910,7 @@
             │       ├── ArchPkg.files
             │       ├── TxtEd-1.0.0-1-any.pkg.tar.zst
 </code></pre></div>
-<h3 id="3-pacman-config">3. Pacman Config</h3>
-<p>Add your repository to pacman in <em>/etc/pacman.conf</em>. Add <em>TrustAll</em> and the repository server.</p>
-<div class="highlight"><pre><span></span><code>            [txted-repo]
-            SigLevel = Optional TrustAll
-            Server = https://[USERNAME].github.io/[REPOSITORY]/repo/x86_64
-</code></pre></div>
+<h3 id="23-update">2.3. Update</h3>
 <p>Make sure to update the pacman database:</p>
 <div class="highlight"><pre><span></span><code>            sudo pacman -Sy
 </code></pre></div>
