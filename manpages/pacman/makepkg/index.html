@@ -866,6 +866,9 @@
 <p>Generate the package database files and add the <strong>package</strong>: <em>.pkg.tar.zst to the </em><em>repository database</em><em>: </em>.db.tar.gz:</p>
 <div class="highlight"><pre><span></span><code>            repo-add repo/x86_64/ArchPkg.db.tar.gz repo/x86_64/TxtEd-1.0.0-1-any.pkg.tar.zst
 </code></pre></div>
+<p>If you got multiple files just do:</p>
+<div class="highlight"><pre><span></span><code>            repo-add ArchPkg.db.tar.gz *.pkg.tar.zst
+</code></pre></div>
 <p>The repository should now have the following structure:</p>
 <div class="highlight"><pre><span></span><code>            repo/
             ├── x86_64/
