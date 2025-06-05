@@ -702,28 +702,37 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-tarball" class="md-nav__link">
+  <a href="#4-making-package" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Tarball
+      4. Making Package
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. Tarball">
+    <nav class="md-nav" aria-label="4. Making Package">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41-gen-db" class="md-nav__link">
+  <a href="#41-generate-database" class="md-nav__link">
     <span class="md-ellipsis">
-      4.1. Gen DB
+      4.1. Generate Database
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#411-sign-db" class="md-nav__link">
+  <a href="#411-sign-database" class="md-nav__link">
     <span class="md-ellipsis">
-      4.1.1 Sign DB
+      4.1.1 Sign Database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-make-package-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. Make Package Source
     </span>
   </a>
   
@@ -735,9 +744,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#24-update" class="md-nav__link">
+  <a href="#5-update" class="md-nav__link">
     <span class="md-ellipsis">
-      2.4. Update
+      5. Update
     </span>
   </a>
   
@@ -889,7 +898,7 @@
 <p>You need to do this and also <strong>create the tarball</strong> on the initial package build. If pointed at the repository server, it will give an error because theres nothing there&hellip; Later add:</p>
 <div class="highlight"><pre><span></span><code>    source=(&quot;$pkgname-$pkgver.tar.gz::https://github.com/[USERNAME]/[REPOSITORY]/raw/main/repo/x86_64/mypkg-$pkgver-1-any.pkg.tar.zst&quot;)
 </code></pre></div>
-<h3 id="4-tarball">4. Tarball</h3>
+<h3 id="4-making-package">4. Making Package</h3>
 <p>You&rsquo;ve got your chosen repository prepared, created the PKGBUILD, now create the package tarball:</p>
 <div class="highlight"><pre><span></span><code>    tar -czvf TxtEd-1.0.0.tar.gz TxtEd
 </code></pre></div>
@@ -899,7 +908,7 @@
 <p>Move the built package tarballs to the appropriate directories, e.g. <em>/repo/x86_64/ /repo/any</em>. The package tarball will have <strong>.pkg.tar.zst</strong> in the name.</p>
 <div class="highlight"><pre><span></span><code>            mv ../TxtEd/TxtEd-1.0.0-1-any.pkg.tar.zst repo/x86_64/
 </code></pre></div>
-<h4 id="41-gen-db">4.1. Gen DB</h4>
+<h4 id="41-generate-database">4.1. Generate Database</h4>
 <p>Generate the package database files and add the <strong>package</strong>: <em>.pkg.tar.zst to the </em><em>repository database</em><em>: </em>.db.tar.gz:</p>
 <div class="highlight"><pre><span></span><code>            repo-add repo/x86_64/ArchPkg.db.tar.gz repo/x86_64/TxtEd-1.0.0-1-any.pkg.tar.zst
 </code></pre></div>
@@ -913,23 +922,15 @@
             │   ├── ArchPkg.db.tar.gz
             │   ├── ArchPkg.files.tar.gz
 </code></pre></div>
-<p>For pacman to see the new db you need to rename the generated databases from tarballs to <em>.db and </em>.files files:</p>
-<div class="highlight"><pre><span></span><code>            mv ArchPkg.db.tar.gz ArchPkg.db
-
-            mv ArchPkg.files.tar.gz ArchPkg.files
-</code></pre></div>
-<p>The repository should now look like below and should now be ready to be used.</p>
-<div class="highlight"><pre><span></span><code>            ├── repo/
-            │       └── x86_64/
-            │       ├── ArchPkg.db
-            │       ├── ArchPkg.files
-            │       ├── TxtEd-1.0.0-1-any.pkg.tar.zst
-</code></pre></div>
-<h4 id="411-sign-db">4.1.1 Sign DB</h4>
+<h4 id="411-sign-database">4.1.1 Sign Database</h4>
 <p>Sign the update db files:</p>
 <div class="highlight"><pre><span></span><code>            gpg --detach-sign --use-agent --armor --output ArchPkg.db.tar.gz.sig ArchPkg.db.tar.gz
 </code></pre></div>
-<h3 id="24-update">2.4. Update</h3>
+<h4 id="42-make-package-source">4.2. Make Package Source</h4>
+<p>Make a source package which includes the PKGBUILD + files:</p>
+<div class="highlight"><pre><span></span><code>            makepkg --source
+</code></pre></div>
+<h3 id="5-update">5. Update</h3>
 <p>Make sure to update the pacman database:</p>
 <div class="highlight"><pre><span></span><code>            sudo pacman -Sy
 </code></pre></div>
