@@ -1,4 +1,8 @@
-# Creating a package repository
+# Creating a Package Repository
+
+**Skip to** [4. Tarball](#4-tarball) **for a quick recap** on repo-add.
+
+## Configuration: First Run
 
 First and most obvious step is creating the GitHub page... This goes without saying so I'll keep it brief.
 
@@ -37,8 +41,6 @@ And then locally sign the key:
 
         sudo pacman-key --lsign-key [GPG-KEY]
 
-#### Makepkg Key
-
 To build packages signed with this key it needs to be configured in makepkg in */etc/makepkg.conf*
 
         #-- Packager: name/email of the person or organization building packages
@@ -46,13 +48,21 @@ To build packages signed with this key it needs to be configured in makepkg in *
         #-- Specify a key to use for package signing
         GPGKEY="[GPG-KEY]"
 
-### 2. Repository Package
+### 2. Pacman Config
+
+Add your repository to pacman in */etc/pacman.conf*. Add *TrustAll* and the repository server.
+
+                [txted-repo]
+                SigLevel = Optional TrustAll
+                Server = https://[USERNAME].github.io/[REPOSITORY]/repo/x86_64
+
+### 3. Repository
 
 Create the repository directories:
 
         mkdir -p repo/{x86_64,any}
 
-#### 2.1. Build Packages
+#### 3.1. PKGBUILD
 
 Create a PKGBUILD file for your package; View archwiki [creating packages](https://wiki.archlinux.org/title/Creating_packages).
 
@@ -89,7 +99,7 @@ You need to do this and also **create the tarball** on the initial package build
 
         source=("$pkgname-$pkgver.tar.gz::https://github.com/[USERNAME]/[REPOSITORY]/raw/main/repo/x86_64/mypkg-$pkgver-1-any.pkg.tar.zst")
 
-#### 2.1.1 Packing the Repository
+#### 4. Tarball
 
 You've got your chosen repository prepared, created the PKGBUILD, now create the package tarball:
 
@@ -108,6 +118,10 @@ Move the built package tarballs to the appropriate directories, e.g. */repo/x86_
 Generate the package database files and add the **package**: *.pkg.tar.zst to the **repository database**: *.db.tar.gz:
 
                 repo-add repo/x86_64/ArchPkg.db.tar.gz repo/x86_64/TxtEd-1.0.0-1-any.pkg.tar.zst
+
+If you got multiple files just do:
+
+                repo-add ArchPkg.db.tar.gz *.pkg.tar.zst
 
 The repository should now have the following structure:
 
@@ -131,14 +145,7 @@ The repository should now look like below and should now be ready to be used.
                 │       ├── ArchPkg.files
                 │       ├── TxtEd-1.0.0-1-any.pkg.tar.zst
 
-
-### 3. Pacman Config
-
-Add your repository to pacman in */etc/pacman.conf*. Add *TrustAll* and the repository server.
-
-                [txted-repo]
-                SigLevel = Optional TrustAll
-                Server = https://[USERNAME].github.io/[REPOSITORY]/repo/x86_64
+### 2.3. Update
 
 Make sure to update the pacman database:
 
