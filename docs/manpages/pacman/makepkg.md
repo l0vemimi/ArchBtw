@@ -58,12 +58,12 @@ Create a PKGBUILD file for your package; View archwiki [creating packages](https
 
         # Maintainer: Your Name <your.email@example.com>
 
-        pkgname=MyPkg
+        pkgname=TxtEd
         pkgver=1.0.0
         pkgrel=1
         pkgdesc="My package"
         arch=('any')
-        url="https://github.com/[USERNAME]/MyPkg"
+        url="https://github.com/[USERNAME]/TxtEd"
         license=('GPL')
         depends=('python' 'python-pyqt6' 'python-pyqt6-webengine' 'python-pygments')
         source=("$pkgname-$pkgver.tar.gz")
@@ -75,10 +75,10 @@ Create a PKGBUILD file for your package; View archwiki [creating packages](https
         }
 
         package() {
-        cd "$srcdir/MyPkg-$pkgver"
-        install -Dm755 txted-qt6.py "$pkgdir/usr/bin/mypkg"
+        cd "$srcdir/TxtEd-$pkgver"
+        install -Dm755 txted-qt6.py "$pkgdir/usr/bin/txted"
         install -Dm644 txted-qt6.desktop "$pkgdir/usr/share/applications/mypkg.desktop"
-        install -Dm644 mypkg.png "$pkgdir/usr/share/pixmaps/mypkg.png"
+        install -Dm644 txted.png "$pkgdir/usr/share/pixmaps/txted.png"
         }
 
 In the **source=** part, put:
@@ -89,50 +89,47 @@ You need to do this and also **create the tarball** on the initial package build
 
         source=("$pkgname-$pkgver.tar.gz::https://github.com/[USERNAME]/[REPOSITORY]/raw/main/repo/x86_64/mypkg-$pkgver-1-any.pkg.tar.zst")
 
-Create the package tarball:
+#### 2.1.1 Packing the Repository
 
-        tar -czvf MyPkg-1.0.0.tar.gz MyPkg
+You've got your chosen repository prepared, created the PKGBUILD, now create the package tarball:
 
-Then you can make the package. Build the package; this will make two tarballs, **.tar.gz** and **pkg.tar.zst**.
+        tar -czvf TxtEd-1.0.0.tar.gz TxtEd
+
+Make the package; this will give you:  **.tar.gz** and **pkg.tar.zst**.
 
                 makepkpg -si
 
 Move the built package tarballs to the appropriate directories, e.g. */repo/x86_64/ /repo/any*. The package tarball will have **.pkg.tar.zst** in the name.
 
-                mv ../MyPkg/MyPkg-1.0.0-1-any.pkg.tar.zst repo/x86_64/
+                mv ../TxtEd/TxtEd-1.0.0-1-any.pkg.tar.zst repo/x86_64/
 
 ### 2.2. Generate Database
 
 Generate the package database files and add the **package**: *.pkg.tar.zst to the **repository database**: *.db.tar.gz:
 
-                repo-add repo/x86_64/PkgRepo.db.tar.gz repo/x86_64/MyPkg-1.0.0-1-any.pkg.tar.zst
+                repo-add repo/x86_64/ArchPkg.db.tar.gz repo/x86_64/TxtEd-1.0.0-1-any.pkg.tar.zst
 
 The repository should now have the following structure:
 
                 repo/
                 ├── x86_64/
-                │   ├── MyPkg-1.0.0-1-x86_64.pkg.tar.zst
-                │   ├── PkgRepo.db.tar.gz
-                │   ├── PkgRepo.files.tar.gz
-                ├── any/
-                │   ├── MyPkg-1.0.0-1-x86_64.pkg.tar.zst
-                │   ├── PkgRepo.db.tar.gz
-                │   ├── PkgRepo.files.tar.gz
+                │   ├── TxtEd-1.0.0-1-x86_64.pkg.tar.zst
+                │   ├── ArchPkg.db.tar.gz
+                │   ├── ArchPkg.files.tar.gz
 
-Rename the generated databases from tarballs to *.db and *.files files:
+For pacman to see the new db you need to rename the generated databases from tarballs to *.db and *.files files:
 
-                mv PkgRepo.db.tar.gz PkgRepo.db
+                mv ArchPkg.db.tar.gz ArchPkg.db
 
-                mv PkgRepo.files.tar.gz PkgRepo.files
+                mv ArchPkg.files.tar.gz ArchPkg.files
 
 The repository should now look like below and should now be ready to be used.
 
                 ├── repo/
                 │       └── x86_64/
-                │       ├── PkgRepo.db
-                │       ├── PkgRepo.files
-                │       ├── MyPkg-1.0.0-1-any.pkg.tar.zst
-
+                │       ├── ArchPkg.db
+                │       ├── ArchPkg.files
+                │       ├── TxtEd-1.0.0-1-any.pkg.tar.zst
 
 
 ### 3. Pacman Config
